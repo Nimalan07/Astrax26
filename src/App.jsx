@@ -10,8 +10,10 @@ import Workshops from "./components/Workshops";
 import Gallery from "./components/Gallery";
 import Sponsors from "./components/Sponsors";
 
-import bgVideo from "./assets/hero.mp4";
-import introVideo from "./assets/intro.mp4";
+import bgVideoWebm from "./assets/hero.webm";
+import bgVideoMp4 from "./assets/hero.mp4";
+import introVideoWebm from "./assets/intro.webm";
+import introVideoMp4 from "./assets/intro.mp4";
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -59,13 +61,15 @@ function App() {
         <div className={`intro-preloader ${fadeIntro ? "fade-out" : ""}`}>
           <video
             ref={videoRef}
-            src={introVideo}
             autoPlay
             muted
             playsInline
             onEnded={handleIntroEnd}
             className="intro-video"
-          />
+          >
+            <source src={introVideoWebm} type="video/webm" />
+            <source src={introVideoMp4} type="video/mp4" />
+          </video>
           <div className="intro-controls">
             <button className="intro-btn skip-btn" onClick={handleSkip}>
               SKIP INTRO <span className="arrow">→</span>
@@ -84,7 +88,8 @@ function App() {
               playsInline
               className="bg-video"
             >
-              <source src={bgVideo} type="video/mp4" />
+              <source src={bgVideoWebm} type="video/webm" />
+              <source src={bgVideoMp4} type="video/mp4" />
             </video>
           </div>
           <div className="overlay"></div>

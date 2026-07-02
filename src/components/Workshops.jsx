@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../styles/Workshop.css";
-import upcomingVideo from "../assets/upcoming.mp4";
+import upcomingVideoWebm from "../assets/upcoming.webm";
+import upcomingVideoMp4 from "../assets/upcoming.mp4";
 const defenseWorkshops = [
   {
     id: "def-1",
@@ -100,7 +101,8 @@ function Workshops({ setActivePage, onToggleExpand }) {
         // COLLAPSED / COMING SOON VIEW (Full Screen Video Background)
         <>
           <video autoPlay muted loop playsInline className="workshop-video-bg">
-            <source src={upcomingVideo} type="video/mp4" />
+            <source src={upcomingVideoWebm} type="video/webm" />
+            <source src={upcomingVideoMp4} type="video/mp4" />
           </video>
           <div className="workshop-overlay-fixed"></div>
           

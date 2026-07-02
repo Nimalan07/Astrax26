@@ -1,7 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import '../styles/Sponsors.css';
-import sponsersBg from '../assets/sponsers.mp4';
+import sponsersBgWebm from '../assets/sponsers.webm';
+import sponsersBgMp4 from '../assets/sponsers.mp4';
 import { FaGoogle, FaMicrosoft, FaAws, FaReact } from 'react-icons/fa';
 import { SiNvidia, SiOpenai, SiIntel, SiAmd, SiTesla, SiMeta, SiGooglecloud, SiCisco } from 'react-icons/si';
 
@@ -127,7 +128,8 @@ const Sponsors = () => {
           }
         }}
       >
-        <source src={sponsersBg} type="video/mp4" />
+        <source src={sponsersBgWebm} type="video/webm" />
+        <source src={sponsersBgMp4} type="video/mp4" />
       </video>
 
       {/* Centered Sponsors Header */}

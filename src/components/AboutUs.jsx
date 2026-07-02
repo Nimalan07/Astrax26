@@ -1,4 +1,5 @@
-import aboutVideo from "../assets/about-bg.mp4";
+import aboutVideoWebm from "../assets/about-bg.webm";
+import aboutVideoMp4 from "../assets/about-bg.mp4";
 import chairmanImg from "../assets/chairman_img.jpg";
 import citImage from "../assets/CIT_image.png";
 import clubImg from "../assets/club_img.jpeg";
@@ -82,7 +83,8 @@ function AboutUs() {
   return (
     <section className="about-section">
       <video autoPlay muted loop playsInline className="about-video-bg">
-        <source src={aboutVideo} type="video/mp4" />
+        <source src={aboutVideoWebm} type="video/webm" />
+        <source src={aboutVideoMp4} type="video/mp4" />
       </video>
       <div className="about-video-overlay"></div>
 

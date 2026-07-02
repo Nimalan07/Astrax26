@@ -9,7 +9,8 @@ import eventNeural from "../assets/event-neural.jpeg";
 import eventPixel from "../assets/event-pixel.jpeg";
 import eventNexus from "../assets/event-nexus.jpeg";
 import eventIdeathon from "../assets/event-ideathon.jpeg";
-import bgVideo from "../assets/bg-video.mp4";
+import bgVideoWebm from "../assets/bg-video.webm";
+import bgVideoMp4 from "../assets/bg-video.mp4";
 import titleCard from "../assets/title card.png";
 import eyeOfAgamotto from "../assets/eye of agamotto.png";
 import eyeOpen from "../assets/eye_open.png";
@@ -327,7 +328,8 @@ function Events() {
     <div className="events-page-wrapper" ref={containerRef}>
       <div className="cosmic-bg">
         <video className="bg-video" autoPlay loop muted playsInline>
-          <source src={bgVideo} type="video/mp4" />
+          <source src={bgVideoWebm} type="video/webm" />
+          <source src={bgVideoMp4} type="video/mp4" />
         </video>
         <div className="cosmic-overlay"></div>
         <div className="nebula-red"></div>

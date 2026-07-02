@@ -466,7 +466,7 @@
   z-index: 3;
 }
 
-.portal-content img {
+.portal-content-inner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
