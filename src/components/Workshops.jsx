@@ -70,6 +70,7 @@ function Workshops({ setActivePage, onToggleExpand }) {
   };
 
   const handleMouseMove = (e) => {
+    if (window.innerWidth <= 768) return;
     const { clientX } = e;
     const width = window.innerWidth;
 
@@ -91,7 +92,14 @@ function Workshops({ setActivePage, onToggleExpand }) {
   };
 
   const handleMouseLeave = () => {
+    if (window.innerWidth <= 768) return;
     setActiveSide(null);
+  };
+
+  const handlePanelClick = (side) => {
+    if (activeSide === null) {
+      setActiveSide(side);
+    }
   };
 
   return (
@@ -136,12 +144,16 @@ function Workshops({ setActivePage, onToggleExpand }) {
           <div className="split-header-bar">
             <div className="split-header-left">
               <button className="back-to-teaser-btn" onClick={() => {
-                setIsOpen(false);
-                if (onToggleExpand) {
-                  onToggleExpand(false);
+                if (activeSide !== null) {
+                  setActiveSide(null);
+                } else {
+                  setIsOpen(false);
+                  if (onToggleExpand) {
+                    onToggleExpand(false);
+                  }
                 }
               }}>
-                ← Back to Teaser
+                {activeSide !== null ? "← Back to Paths" : "← Back to Teaser"}
               </button>
             </div>
             <h2 className="split-page-title">CHOOSE YOUR PATH</h2>
@@ -157,6 +169,7 @@ function Workshops({ setActivePage, onToggleExpand }) {
             {/* LEFT PANEL: BLUE / CYBER SECURITY */}
             <div 
               className={`split-panel left-panel ${activeSide === "left" ? "expanded" : activeSide === "right" ? "shrunk" : ""}`}
+              onClick={() => handlePanelClick("left")}
             >
               <div className="panel-bg-hover left-hover-bg"></div>
               <div className="panel-overlay blue-overlay"></div>
@@ -178,7 +191,8 @@ function Workshops({ setActivePage, onToggleExpand }) {
                     </ul>
 
                     <div className="hover-prompt blue-prompt">
-                      Hover to Acquire Power
+                      <span className="desktop-only-text">Hover to Acquire Power</span>
+                      <span className="mobile-only-text">Tap to Acquire Power</span>
                     </div>
                   </>
                 ) : (
@@ -218,6 +232,7 @@ function Workshops({ setActivePage, onToggleExpand }) {
             {/* RIGHT PANEL: ORANGE / INTRO TO AI/ML */}
             <div 
               className={`split-panel right-panel ${activeSide === "right" ? "expanded" : activeSide === "left" ? "shrunk" : ""}`}
+              onClick={() => handlePanelClick("right")}
             >
               <div className="panel-bg-hover right-hover-bg"></div>
               <div className="panel-overlay orange-overlay"></div>
@@ -239,7 +254,8 @@ function Workshops({ setActivePage, onToggleExpand }) {
                     </ul>
 
                     <div className="hover-prompt orange-prompt">
-                      Hover to Unleash Force
+                      <span className="desktop-only-text">Hover to Unleash Force</span>
+                      <span className="mobile-only-text">Tap to Unleash Force</span>
                     </div>
                   </>
                 ) : (

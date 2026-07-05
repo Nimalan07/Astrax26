@@ -762,4 +762,12 @@
     height: 40px;
     font-size: 1.2rem;
   }
+
+  .nav-arrow.left {
+    left: 10px;
+  }
+
+  .nav-arrow.right {
+    right: 10px;
+  }
 }

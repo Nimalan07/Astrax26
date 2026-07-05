@@ -445,6 +445,12 @@ function Events() {
             </div>
           </div>
 
+          {/* Info card backdrop blur/dimmer */}
+          <div
+            className={`agamotto-modal-backdrop ${infoOpen ? "visible" : ""}`}
+            onClick={closeInfo}
+          />
+
           {/* Info card — modal overlay */}
           <div
             className="agamotto-info-card"
