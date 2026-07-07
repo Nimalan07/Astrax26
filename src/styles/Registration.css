@@ -15,12 +15,13 @@
 .reg-page {
   position: fixed;
   inset: 0;
-  overflow: hidden;
+  overflow: hidden; /* Lock page to prevent scrolling */
   background: #05040200;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding-top: 70px;
+  padding-top: 96px; /* Offset the header/navbar */
+  padding-bottom: 0px;
   font-family: 'Cinzel', serif;
   background-color: #050401;
 }
@@ -117,7 +118,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -127,9 +128,9 @@
   position: relative;
   width: 100%;
   /* Padding lets glow bleed out beyond card edges */
-  padding: 40px 0;
-  margin-top: -40px;
-  margin-bottom: -40px;
+  padding: 20px 0;
+  margin-top: -20px;
+  margin-bottom: -20px;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -327,7 +328,7 @@
   width: 100%;
   background: rgba(8, 6, 2, 0.93);
   border-radius: 8px;
-  padding: 26px 44px 20px;
+  padding: 22px 36px 18px;
   position: relative;
   overflow: hidden;
   z-index: 2; /* Ensure card sits above the glow layers */
@@ -419,11 +420,28 @@
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .card-header {
   text-align: center;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
+  gap: 1px;
+}
+
+/* Compact header styling specifically for Step 2 to save screen height */
+.step-body:has(.payment-grid) .card-header {
+  margin-bottom: 8px;
+}
+.step-body:has(.payment-grid) .legend {
+  font-size: 2.1rem;
+  letter-spacing: 6px;
+}
+.step-body:has(.payment-grid) .fleur {
+  font-size: 1.3rem;
+  margin-bottom: 0px;
+}
+.step-body:has(.payment-grid) .become-a {
+  font-size: 0.75rem;
+  letter-spacing: 5px;
 }
 
 .fleur {
@@ -698,92 +716,99 @@
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Step 2 — Payment
+   Step 2 — Payment Redesign
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .payment-grid {
   display: grid;
-  /* Left: ticket info | Center: QR | Right: form */
-  grid-template-columns: 180px 180px 1fr;
-  gap: 20px;
+  /* Left: unified pass panel (~38%) | Right: form (~60%) */
+  grid-template-columns: 320px 1fr;
+  gap: 28px;
   width: 100%;
   align-items: start;
-  margin-top: 8px;
+  margin-top: 4px;
 }
 
-.ticket-panel {
+/* Unified left Payment Pass panel */
+.payment-pass-panel {
   border: 1px solid rgba(201,161,74,0.32);
-  border-radius: 6px;
-  padding: 14px 12px;
+  border-radius: 8px;
+  padding: 16px 20px;
   text-align: center;
-  background: rgba(0,0,0,0.45);
+  background: rgba(10, 8, 4, 0.65);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.5);
 }
 
 .ticket-price {
   font-family: 'Cinzel', serif;
-  font-size: 1.8rem;
+  font-size: 2.2rem;
   font-weight: 900;
   background: linear-gradient(180deg, #F5D060 0%, #C9860A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 8px rgba(212,168,53,0.4));
+  filter: drop-shadow(0 0 10px rgba(212,168,53,0.45));
+  margin: 0;
 }
 
 .ticket-subtitle {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.54rem;
-  letter-spacing: 1.5px;
-  color: #777;
+  font-size: 0.56rem;
+  letter-spacing: 2px;
+  color: #C9A14A;
   text-transform: uppercase;
-  margin: 3px 0 8px;
+  margin: 4px 0 10px;
+  font-weight: 700;
   padding-bottom: 8px;
+  width: 100%;
   border-bottom: 1px dashed rgba(201,161,74,0.22);
 }
 
 .inclusions {
   list-style: none;
-  padding: 0; margin: 0;
+  padding: 0; margin: 0 0 10px 0;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 12px;
+  width: 100%;
 }
 
 .inclusions li {
   font-family: 'Poppins', sans-serif;
   font-size: 0.68rem;
-  color: #999;
+  color: #aaa;
   display: flex;
-  gap: 6px;
+  gap: 8px;
 }
 
 .check { color: #C9A14A; font-weight: bold; }
 
-/* QR panel — compact center column */
-.payment-right {
-  display: contents; /* dissolve wrapper, children go into grid directly */
-}
-
-.qr-panel {
-  text-align: center;
-  border: 1px solid rgba(201,161,74,0.22);
-  border-radius: 6px;
-  padding: 16px 12px;
-  background: rgba(0,0,0,0.3);
+/* Large QR Container styled with golden frame and shadow */
+.large-qr-container {
+  border: 1px solid rgba(201,161,74,0.5);
+  border-radius: 8px;
+  padding: 16px 14px;
+  background: rgba(5,4,2,0.85);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 12px;
+  box-shadow: 0 0 25px rgba(201,161,74,0.35);
+  width: 100%;
+  margin-top: 4px;
 }
 
-.qr-label {
+.qr-scan-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 2px;
-  color: #888;
+  font-size: 0.62rem;
+  letter-spacing: 2.5px;
+  color: #C9A14A;
   text-transform: uppercase;
-  margin-bottom: 4px;
+  font-weight: 700;
+  margin: 0;
 }
 
 .qr-wrap {
@@ -793,66 +818,141 @@
 
 .qr-ring {
   position: absolute;
-  inset: -4px;
+  inset: -6px;
   border-radius: 6px;
-  border: 1px solid #C9A14A;
+  border: 1.5px solid #C9A14A;
   animation: pulse-gold 2.5s ease-in-out infinite;
   pointer-events: none;
 }
 
 @keyframes pulse-gold {
   0%, 100% { opacity: 0.45; box-shadow: none; }
-  50%       { opacity: 0.9;  box-shadow: 0 0 12px rgba(201,161,74,0.4); }
+  50%       { opacity: 0.9;  box-shadow: 0 0 15px rgba(201,161,74,0.5); }
 }
 
 .qr-img {
   display: block;
-  width: 140px;
-  height: 140px;
+  width: 200px;
+  height: 200px;
   object-fit: contain;
   background: #fff;
-  padding: 4px;
+  padding: 6px;
   border-radius: 4px;
   position: relative;
   z-index: 2;
 }
 
-/* Form column — third grid column */
 .payment-form-col {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px; /* Slightly increased gap to distribute space */
+  margin-top: -4px;
 }
 
-/* File upload */
+/* Payment Guidelines Container Box */
+.payment-guidelines {
+  border: 1px solid rgba(201,161,74,0.22);
+  border-radius: 6px;
+  padding: 14px 18px;
+  background: rgba(201, 161, 74, 0.02);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 6px; /* spacing before next section */
+}
+
+.guidelines-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 2px;
+  color: #C9A14A;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+.guidelines-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* increased line list gap */
+}
+
+.guidelines-list li {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.64rem; /* slightly larger text */
+  color: #888;
+  line-height: 1.5; /* increased line-height */
+  position: relative;
+  padding-left: 16px; /* expanded space for symbol prefix */
+}
+
+.guidelines-list li::before {
+  content: '◆';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: rgba(201,161,74,0.5);
+  font-size: 0.35rem;
+}
+
+/* Dropzone Area */
 .file-upload-wrapper input[type="file"] { display: none; }
 
-.file-btn {
+.dropzone-container {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
   width: 100%;
-  border: 1px dashed rgba(201,161,74,0.3);
-  border-radius: 4px;
-  padding: 11px;
-  color: #777;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.76rem;
+  height: 126px; /* Increased height to absorb empty space */
+  border: 1px dashed rgba(201,161,74,0.32);
+  border-radius: 6px;
+  padding: 12px;
   cursor: pointer;
-  transition: all 0.25s;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.45);
+  transition: all 0.25s ease;
 }
 
-.file-btn:hover {
+.dropzone-container:hover {
   border-color: #C9A14A;
-  color: #C9A14A;
-  box-shadow: 0 0 8px rgba(201,161,74,0.15);
+  background: rgba(15, 12, 6, 0.45);
+  box-shadow: 0 0 12px rgba(201, 161, 74, 0.15);
 }
 
-.field-wrap.err .file-btn {
-  border-color: rgba(220,60,60,0.6);
-  color: #b03030;
+.dropzone-icon {
+  font-size: 1.8rem;
+  color: #C9A14A;
+  margin-bottom: 6px;
+  filter: drop-shadow(0 0 4px rgba(201,161,74,0.4));
+  transition: transform 0.25s ease;
+}
+
+.dropzone-container:hover .dropzone-icon {
+  transform: translateY(-2px);
+}
+
+.dropzone-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #e5e5e5;
+  text-align: center;
+  margin-bottom: 2px;
+}
+
+.dropzone-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.64rem;
+  color: #666;
+  text-align: center;
+}
+
+.field-wrap.err .dropzone-container {
+  border-color: rgba(220,60,60,0.65);
+  box-shadow: 0 0 10px rgba(220,60,60,0.15);
 }
 
 /* Checkbox */

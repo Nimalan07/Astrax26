@@ -7,11 +7,12 @@ import {
 import { MdEmail } from "react-icons/md";
 import { RiBankCardFill } from "react-icons/ri";
 import "../styles/Registration.css";
-import qr1 from "../assets/qr1.jpeg";
-import qr2 from "../assets/qr2.jpeg";
-import qr3 from "../assets/qr3.jpeg";
-
-const qrImages = [qr1, qr2, qr3];
+// Dynamic path strings to prevent compile errors when files are missing
+const qrImages = [
+  "/src/assets/qr1.jpeg",
+  "/src/assets/qr2.jpeg",
+  "/src/assets/qr3.jpeg"
+];
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    Particle Canvas (Phase 1)
@@ -452,49 +453,70 @@ function Registration() {
                 </div>
 
                 <div className="payment-grid">
-                  <div className="ticket-panel">
-                    <div className="ticket-price">₹250</div>
-                    <div className="ticket-subtitle">Registration Fee</div>
+                  {/* Left: Combined Payment Pass Panel */}
+                  <div className="payment-pass-panel">
+                    <div className="ticket-price">₹200</div>
+                    <div className="ticket-subtitle">ALL ACCESS PASS</div>
                     <ul className="inclusions">
                       <li><span className="check">✓</span> Access to all 6 Events</li>
                       <li><span className="check">✓</span> Workshops</li>
                       <li><span className="check">✓</span> Participation Certificate</li>
                       <li><span className="check">✓</span> Event Updates</li>
                     </ul>
-                  </div>
-
-                  {/* QR — center column (direct grid child) */}
-                  <div className="qr-panel">
-                    <p className="qr-label">Scan & Pay</p>
-                    <div className="qr-wrap">
-                      <div className="qr-ring" />
-                      <img
-                        src={qrImages[qrIndex]}
-                        alt="GPay QR" className="qr-img"
-                      />
+                    
+                    {/* Integrated Larger QR Scanner in Pass Panel */}
+                    <div className="large-qr-container">
+                      <p className="qr-scan-label">SCAN & PAY</p>
+                      <div className="qr-wrap">
+                        <div className="qr-ring" />
+                        <img
+                          src={qrImages[qrIndex]}
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = "https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg";
+                          }}
+                          alt="GPay QR" className="qr-img"
+                        />
+                      </div>
                     </div>
                   </div>
 
-                  {/* Form — right column (direct grid child) */}
+                  {/* Right: Form Column */}
                   <form className="payment-form-col" onSubmit={handleSubmit}>
                     <motion.div variants={gridVariants} initial="hidden" animate="show"
-                      style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                      style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                      
+                      {/* Guidelines box to fill vertical gap and instruct user */}
+                      <motion.div variants={fieldVariants} className="payment-guidelines">
+                        <span className="guidelines-title">◆ Payment Guidelines ◆</span>
+                        <ul className="guidelines-list">
+                          <li>Verify receiver name matches the QR display before completing transaction.</li>
+                          <li>Ensure screenshot clearly displays transaction ID and payment amount.</li>
+                          <li>Registrations are validated automatically within 24 hours.</li>
+                        </ul>
+                      </motion.div>
+
                       <Field label="UPI TRANSACTION ID" icon={<RiBankCardFill />} name="transactionId" type="text" placeholder="Enter 12-digit transaction ID" formData={formData} errors={errors} onChange={handleChange} />
 
                       <motion.div variants={fieldVariants} className={`field-wrap ${errors.screenshot ? "err" : ""}`}>
                         <label className="field-label">UPLOAD PAYMENT SCREENSHOT</label>
                         <div className="file-upload-wrapper">
                           <input type="file" id="screenshot" accept="image/*" onChange={handleFileChange} />
-                          <label htmlFor="screenshot" className="file-btn">
-                            <FaCloudUploadAlt />
-                            {formData.screenshot ? formData.screenshot.name : "Choose Image"}
+                          <label htmlFor="screenshot" className="dropzone-container">
+                            <FaCloudUploadAlt className="dropzone-icon" />
+                            <span className="dropzone-title">
+                              {formData.screenshot ? formData.screenshot.name : "Select Payment Screenshot"}
+                            </span>
+                            <span className="dropzone-subtitle">
+                              {formData.screenshot ? "Click to change file" : "Drag & drop or click to upload PNG, JPG"}
+                            </span>
                           </label>
                         </div>
                       </motion.div>
 
                       <motion.div variants={fieldVariants} className={`check-row ${errors.confirmPaid ? "err" : ""}`}>
                         <input type="checkbox" id="confirmPaid" name="confirmPaid" checked={formData.confirmPaid} onChange={handleChange} />
-                        <label htmlFor="confirmPaid">I confirm that I have paid ₹250 using the official QR code.</label>
+                        <label htmlFor="confirmPaid">I confirm that I have paid ₹200 using the official QR code.</label>
                       </motion.div>
                     </motion.div>
 
