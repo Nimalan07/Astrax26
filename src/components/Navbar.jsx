@@ -86,14 +86,14 @@ function Navbar({ activeTab, onTabChange, forceHidden }) {
           Sponsors
         </li>
         <li className="nav-mobile-register">
-          <button className="register-btn mobile-reg-btn" onClick={() => triggerRazorpayPayment({ amount: 50, description: "Astra X All Access Registration" })}>
+          <button className="register-btn mobile-reg-btn" onClick={() => handleTabClick("Registration")}>
             Register Now
           </button>
         </li>
       </ul>
 
       <div className="nav-actions-container">
-        <button className="register-btn desktop-reg-btn" onClick={() => triggerRazorpayPayment({ amount: 50, description: "Astra X All Access Registration" })}>
+        <button className="register-btn desktop-reg-btn" onClick={() => handleTabClick("Registration")}>
           Register Now
         </button>
       </div>

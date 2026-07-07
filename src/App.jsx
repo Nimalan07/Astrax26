@@ -9,6 +9,7 @@ import AboutUs from "./components/AboutUs";
 import Workshops from "./components/Workshops";
 import Gallery from "./components/Gallery";
 import Sponsors from "./components/Sponsors";
+import Registration from "./components/Registration";
 
 import bgVideoWebm from "./assets/hero.webm";
 import bgVideoMp4 from "./assets/hero.mp4";
@@ -114,6 +115,7 @@ function App() {
         )}
         {activeTab === "Gallery"   && <Gallery />}
         {activeTab === "Sponsors"  && <Sponsors />}
+        {activeTab === "Registration" && <Registration />}
       </div>
     </div>
   );

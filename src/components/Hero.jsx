@@ -38,7 +38,7 @@ function Hero({ onTabChange }) {
 
       {/* CTA buttons */}
       <div className="hero-buttons">
-        <button className="primary-btn" onClick={() => triggerRazorpayPayment({ amount: 50, description: "Astra X All Access Registration" })}>
+        <button className="primary-btn" onClick={() => onTabChange && onTabChange("Registration")}>
           <span className="btn-glow" />
           Register Now
         </button>
