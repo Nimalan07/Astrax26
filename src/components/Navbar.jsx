@@ -69,10 +69,6 @@ function Navbar({ activeTab, onTabChange, forceHidden }) {
           <img src={tImg} alt="Time" className="nav-stone-img" />
           Events
         </li>
-        <li className={`nav-item reality ${activeTab === "About Us" ? "active-stone" : ""}`} onClick={() => handleTabClick("About Us")}>
-          <img src={rImg} alt="Reality" className="nav-stone-img" />
-          About Us
-        </li>
         <li className={`nav-item soul ${activeTab === "Workshops" ? "active-stone" : ""}`} onClick={() => handleTabClick("Workshops")}>
           <img src={sImg} alt="Soul" className="nav-stone-img" />
           Workshops
@@ -84,6 +80,10 @@ function Navbar({ activeTab, onTabChange, forceHidden }) {
         <li className={`nav-item space ${activeTab === "Sponsors" ? "active-stone" : ""}`} onClick={() => handleTabClick("Sponsors")}>
           <img src={spImg} alt="Space" className="nav-stone-img" style={{ width: "50px", height: "50px", margin: "0 -12px" }} />
           Sponsors
+        </li>
+        <li className={`nav-item reality ${activeTab === "About Us" ? "active-stone" : ""}`} onClick={() => handleTabClick("About Us")}>
+          <img src={rImg} alt="Reality" className="nav-stone-img" />
+          About Us
         </li>
         <li className="nav-mobile-register">
           <button className="register-btn mobile-reg-btn" onClick={() => handleTabClick("Registration")}>
