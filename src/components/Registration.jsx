@@ -380,49 +380,49 @@ function Registration() {
                     </ul>
                   </div>
 
-                  <div className="payment-right">
-                    <div className="qr-panel">
-                      <p className="qr-label">Official Payment QR</p>
-                      <div className="qr-wrap">
-                        <div className="qr-ring" />
-                        <img
-                          src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg"
-                          alt="GPay QR" className="qr-img"
-                        />
-                      </div>
+                  {/* QR — center column (direct grid child) */}
+                  <div className="qr-panel">
+                    <p className="qr-label">Scan & Pay</p>
+                    <div className="qr-wrap">
+                      <div className="qr-ring" />
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg"
+                        alt="GPay QR" className="qr-img"
+                      />
                     </div>
+                  </div>
 
-                    <form className="reg-form" onSubmit={handleSubmit}>
-                      <motion.div variants={gridVariants} initial="hidden" animate="show"
-                        style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                        <Field label="UPI TRANSACTION ID" icon={<RiBankCardFill />} name="transactionId" type="text" placeholder="Enter 12-digit transaction ID" formData={formData} errors={errors} onChange={handleChange} />
+                  {/* Form — right column (direct grid child) */}
+                  <form className="payment-form-col" onSubmit={handleSubmit}>
+                    <motion.div variants={gridVariants} initial="hidden" animate="show"
+                      style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                      <Field label="UPI TRANSACTION ID" icon={<RiBankCardFill />} name="transactionId" type="text" placeholder="Enter 12-digit transaction ID" formData={formData} errors={errors} onChange={handleChange} />
 
-                        <motion.div variants={fieldVariants} className={`field-wrap ${errors.screenshot ? "err" : ""}`}>
-                          <label className="field-label">UPLOAD PAYMENT SCREENSHOT</label>
-                          <div className="file-upload-wrapper">
-                            <input type="file" id="screenshot" accept="image/*" onChange={handleFileChange} />
-                            <label htmlFor="screenshot" className="file-btn">
-                              <FaCloudUploadAlt />
-                              {formData.screenshot ? formData.screenshot.name : "Choose Image"}
-                            </label>
-                          </div>
-                        </motion.div>
-
-                        <motion.div variants={fieldVariants} className={`check-row ${errors.confirmPaid ? "err" : ""}`}>
-                          <input type="checkbox" id="confirmPaid" name="confirmPaid" checked={formData.confirmPaid} onChange={handleChange} />
-                          <label htmlFor="confirmPaid">I confirm that I have paid ₹250 using the official QR code.</label>
-                        </motion.div>
+                      <motion.div variants={fieldVariants} className={`field-wrap ${errors.screenshot ? "err" : ""}`}>
+                        <label className="field-label">UPLOAD PAYMENT SCREENSHOT</label>
+                        <div className="file-upload-wrapper">
+                          <input type="file" id="screenshot" accept="image/*" onChange={handleFileChange} />
+                          <label htmlFor="screenshot" className="file-btn">
+                            <FaCloudUploadAlt />
+                            {formData.screenshot ? formData.screenshot.name : "Choose Image"}
+                          </label>
+                        </div>
                       </motion.div>
 
-                      <div className="step2-actions">
-                        <button type="button" className="back-btn" onClick={() => setStep(1)}>← Back</button>
-                        <CTA type="submit" loading={isTransitioning} className="grow">
-                          COMPLETE REGISTRATION &nbsp;›
-                        </CTA>
-                      </div>
-                    </form>
-                  </div>
-                </div>
+                      <motion.div variants={fieldVariants} className={`check-row ${errors.confirmPaid ? "err" : ""}`}>
+                        <input type="checkbox" id="confirmPaid" name="confirmPaid" checked={formData.confirmPaid} onChange={handleChange} />
+                        <label htmlFor="confirmPaid">I confirm that I have paid ₹250 using the official QR code.</label>
+                      </motion.div>
+                    </motion.div>
+
+                    <div className="step2-actions">
+                      <button type="button" className="back-btn" onClick={() => setStep(1)}>← Back</button>
+                      <CTA type="submit" loading={isTransitioning} className="grow">
+                        COMPLETE REGISTRATION &nbsp;›
+                      </CTA>
+                    </div>
+                  </form>
+                </div>{/* end payment-grid */}
               </motion.div>
             )}
 
