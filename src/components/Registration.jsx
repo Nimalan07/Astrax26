@@ -7,6 +7,11 @@ import {
 import { MdEmail } from "react-icons/md";
 import { RiBankCardFill } from "react-icons/ri";
 import "../styles/Registration.css";
+import qr1 from "../assets/qr1.jpeg";
+import qr2 from "../assets/qr2.jpeg";
+import qr3 from "../assets/qr3.jpeg";
+
+const qrImages = [qr1, qr2, qr3];
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    Particle Canvas (Phase 1)
@@ -197,6 +202,28 @@ function SelectField({ label, icon, name, formData, errors, onChange }) {
 function Registration() {
   const [step, setStep]                 = useState(1);
   const [isTransitioning, setTransit]   = useState(false);
+  const [qrIndex, setQrIndex]           = useState(0);
+
+  useEffect(() => {
+    const fetchRegistrationCount = async () => {
+      try {
+        const scriptURL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+        if (!scriptURL) return;
+
+        const response = await fetch(scriptURL);
+        const data = await response.json();
+        
+        if (data.count !== undefined) {
+          const index = Math.floor(data.count / 50) % 3;
+          setQrIndex(index);
+        }
+      } catch (error) {
+        console.error("Failed to fetch registration count for QR rotation", error);
+      }
+    };
+    fetchRegistrationCount();
+  }, []);
+
   const [formData, setFormData]         = useState({
     name: "", email: "", mobile: "", college: "",
     department: "", year: "", teamName: "",
@@ -442,7 +469,7 @@ function Registration() {
                     <div className="qr-wrap">
                       <div className="qr-ring" />
                       <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/d/d0/QR_code_for_mobile_English_Wikipedia.svg"
+                        src={qrImages[qrIndex]}
                         alt="GPay QR" className="qr-img"
                       />
                     </div>
