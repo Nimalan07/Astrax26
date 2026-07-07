@@ -235,14 +235,70 @@ function Registration() {
     goToStep(2);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newErrors = {};
     if (!formData.transactionId.trim()) newErrors.transactionId = true;
     if (!formData.screenshot)           newErrors.screenshot     = true;
     if (!formData.confirmPaid)          newErrors.confirmPaid    = true;
     if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
-    goToStep(3);
+
+    setTransit(true);
+    try {
+      const scriptURL = import.meta.env.VITE_GOOGLE_SCRIPT_URL;
+      
+      let base64Data = "";
+      let mimeType = "";
+      let fileName = "";
+
+      if (formData.screenshot) {
+        const reader = new FileReader();
+        base64Data = await new Promise((resolve) => {
+          reader.onloadend = () => resolve(reader.result);
+          reader.readAsDataURL(formData.screenshot);
+        });
+        mimeType = formData.screenshot.type;
+        fileName = formData.screenshot.name;
+      }
+
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        mobile: formData.mobile,
+        college: formData.college,
+        department: formData.department,
+        year: formData.year,
+        teamName: formData.teamName,
+        transactionId: formData.transactionId,
+        screenshotBase64: base64Data,
+        screenshotName: fileName,
+        screenshotMime: mimeType
+      };
+
+      if (scriptURL) {
+        const formParams = new URLSearchParams();
+        for (const key in payload) {
+          formParams.append(key, payload[key]);
+        }
+
+        await fetch(scriptURL, {
+          method: "POST",
+          body: formParams,
+          mode: "no-cors"
+        });
+      } else {
+        console.warn("VITE_GOOGLE_SCRIPT_URL is not defined. Skipping Google Sheets upload.");
+      }
+
+      setTimeout(() => {
+        setStep(3);
+        setTransit(false);
+      }, 850);
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Submission failed. Please try again.");
+      setTransit(false);
+    }
   };
 
   const pageVariants = {
