@@ -70,44 +70,59 @@ const Gallery = () => {
         <div className="portals-wrapper">
           
           {/* Images inside the windows */}
-          <div className="portal-content portal-left">
-            <div className="portal-content-inner">
-              {leftImages.map((img, idx) => (
-                <img 
-                  key={`left-${idx}`} 
-                  src={img} 
-                  alt={`Ironman ${idx + 1}`} 
-                  className={leftIndex === idx ? 'active-image' : 'inactive-image'}
-                />
-              ))}
+          <div className="portal-wrapper-mobile">
+            <div className="portal-content portal-left">
+              <div className="portal-content-inner" onClick={nextLeft}>
+                {leftImages.map((img, idx) => (
+                  <img 
+                    key={`left-${idx}`} 
+                    src={img} 
+                    alt={`Ironman ${idx + 1}`} 
+                    className={leftIndex === idx ? 'active-image' : 'inactive-image'}
+                  />
+                ))}
+              </div>
+              <img src={portalsImg} alt="Frame" className="portal-frame-individual" />
             </div>
-            <img src={portalsImg} alt="Frame" className="portal-frame-individual" />
+            <div className="portal-btn-mobile">
+              <img src={b1} alt="Left Control" className="rune-btn" style={{ width: '55.5px' }} onClick={nextLeft} />
+            </div>
           </div>
-          <div className="portal-content portal-center">
-            <div className="portal-content-inner">
-              {centerImages.map((img, idx) => (
-                <img 
-                  key={`center-${idx}`} 
-                  src={img} 
-                  alt={`Thor ${idx + 1}`} 
-                  className={centerIndex === idx ? 'active-image' : 'inactive-image'}
-                />
-              ))}
+          <div className="portal-wrapper-mobile">
+            <div className="portal-content portal-center">
+              <div className="portal-content-inner" onClick={nextCenter}>
+                {centerImages.map((img, idx) => (
+                  <img 
+                    key={`center-${idx}`} 
+                    src={img} 
+                    alt={`Thor ${idx + 1}`} 
+                    className={centerIndex === idx ? 'active-image' : 'inactive-image'}
+                  />
+                ))}
+              </div>
+              <img src={portalsImg} alt="Frame" className="portal-frame-individual" />
             </div>
-            <img src={portalsImg} alt="Frame" className="portal-frame-individual" />
+            <div className="portal-btn-mobile">
+              <img src={b2} alt="Center Control" className="rune-btn" onClick={nextCenter} />
+            </div>
           </div>
-          <div className="portal-content portal-right">
-            <div className="portal-content-inner">
-              {rightImages.map((img, idx) => (
-                <img 
-                  key={`right-${idx}`} 
-                  src={img} 
-                  alt={`Captain America ${idx + 1}`} 
-                  className={rightIndex === idx ? 'active-image' : 'inactive-image'}
-                />
-              ))}
+          <div className="portal-wrapper-mobile">
+            <div className="portal-content portal-right">
+              <div className="portal-content-inner" onClick={nextRight}>
+                {rightImages.map((img, idx) => (
+                  <img 
+                    key={`right-${idx}`} 
+                    src={img} 
+                    alt={`Captain America ${idx + 1}`} 
+                    className={rightIndex === idx ? 'active-image' : 'inactive-image'}
+                  />
+                ))}
+              </div>
+              <img src={portalsImg} alt="Frame" className="portal-frame-individual" />
             </div>
-            <img src={portalsImg} alt="Frame" className="portal-frame-individual" />
+            <div className="portal-btn-mobile">
+              <img src={b3} alt="Right Control" className="rune-btn" style={{ width: '42.8px' }} onClick={nextRight} />
+            </div>
           </div>
           
           {/* The main portals frame overlay */}

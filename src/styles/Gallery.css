@@ -426,6 +426,14 @@
 }
 
 /* Base styles for the content behind the windows */
+.portal-wrapper-mobile {
+  display: contents;
+}
+
+.portal-btn-mobile {
+  display: none;
+}
+
 .portal-content {
   position: absolute;
   z-index: 2;
@@ -621,5 +629,86 @@
   }
   .gallery-title {
     font-size: 3rem;
+  }
+}
+
+/* Mobile Portals Optimization */
+@media (max-width: 768px) {
+  .center-portals-container {
+    padding-top: 5vh;
+    padding-bottom: 20px;
+  }
+  
+  .gallery-main-title-img {
+    height: 12vh;
+    margin: -2vh 0 2vh 0;
+  }
+
+  .portals-wrapper {
+    width: 100vw;
+    max-width: 100vw;
+    height: 65vh;
+    aspect-ratio: unset;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 5vw;
+    padding: 0 10vw;
+    animation: none; /* Disable float on mobile to avoid layout shifts during scroll */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    align-items: center;
+  }
+  
+  .portals-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .portal-wrapper-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-snap-align: center;
+    flex: 0 0 80vw; /* Enforce exact width */
+    width: 80vw;
+    height: 100%;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .portal-btn-mobile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px; /* Fixed height so buttons don't affect flex remaining space */
+    flex-shrink: 0;
+  }
+
+  .portal-content {
+    position: relative;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100%;
+    min-width: unset;
+    flex: 1;
+    max-height: calc(100% - 70px);
+    transform: none !important;
+    scroll-snap-align: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.8), inset 0 0 15px rgba(0, 0, 0, 0.6), 0 0 15px rgba(223, 178, 79, 0.2);
+  }
+
+  .portal-content:hover {
+    transform: scale(1.02) !important;
+  }
+
+  /* Hide the global controls wrapper on mobile since buttons are under each frame */
+  .gallery-controls {
+    display: none;
+  }
+
+  .rune-btn {
+    width: 65px !important;
   }
 }
