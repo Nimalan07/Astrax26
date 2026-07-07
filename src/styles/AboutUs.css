@@ -76,7 +76,8 @@
 .about-hero-kicker,
 .about-card-badge,
 .photo-kicker {
-  font-family: var(--font-orbitron);
+  font-family: var(--font-montserrat);
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
 }
@@ -91,8 +92,9 @@
 }
 
 .about-hero h2 {
-  font-family: var(--font-bebas);
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-family: var(--font-poppins);
+  font-weight: 700;
+  font-size: clamp(3rem, 6vw, 5rem);
   line-height: 0.9;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -102,6 +104,8 @@
 }
 
 .about-hero p {
+  font-family: var(--font-inter);
+
   max-width: 760px;
   margin: 18px auto 0;
   color: #f3dada;
@@ -168,9 +172,9 @@
 
 .about-story-copy h3,
 .chairman-content h3 {
-  font-family: var(--font-bebas);
+  font-family: var(--font-poppins);
   color: white;
-  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  font-size: clamp(1.2rem, 3vw, 2.0rem);
   letter-spacing: 1.5px;
   line-height: 0.98;
   margin: 0;
@@ -179,6 +183,7 @@
 
 .about-story-copy p,
 .chairman-content p {
+  font-family: var(--font-inter);
   color: #f1dddd;
   font-size: 1rem;
   line-height: 1.72;

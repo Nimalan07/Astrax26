@@ -411,6 +411,11 @@
   filter: drop-shadow(0 5px 15px rgba(212, 175, 55, 0.4));
 }
 
+.gallery-main-title-img.coming-soon-active {
+  margin: 2vh 0 1vh 0; /* Reset negative margin to sit cleanly above text */
+  height: 20vh;
+}
+
 .portals-wrapper {
   position: relative;
   height: 66vh;
@@ -710,5 +715,75 @@
 
   .rune-btn {
     width: 65px !important;
+  }
+}
+
+/* ── Gallery Coming Soon Display ── */
+.gallery-coming-soon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 1vh; /* Reduced margin to align with negative margins of title image */
+  z-index: 10;
+  pointer-events: none;
+  animation: floatPortalsComingSoon 6s ease-in-out infinite alternate;
+}
+
+.gallery-coming-soon-tagline {
+  font-family: var(--font-poppins);
+  color: #ffffff;
+  letter-spacing: 3px;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  text-shadow: 0 0 8px rgba(230, 163, 62, 0.2);
+  font-weight: 600;
+  padding: 6px 18px;
+  background: rgba(230, 163, 62, 0.04);
+  border: 1px solid rgba(230, 163, 62, 0.15);
+  border-radius: 20px;
+  display: inline-block;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  animation: fade-in 1s forwards 0.5s;
+}
+
+.gallery-coming-soon-title {
+  font-family: 'Cinzel', serif;
+  font-size: 4.5rem;
+  font-weight: 900;
+  letter-spacing: 8px;
+  margin: 0;
+  background: linear-gradient(180deg, #ffffff 0%, #e6a33e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 30px rgba(230, 163, 62, 0.45));
+  line-height: 1.1;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fade-in 1.2s forwards 0.7s;
+}
+
+.gallery-coming-soon-subtitle {
+  font-family: var(--font-cinzel-dec);
+  font-size: 1.1rem;
+  color: #b0a090;
+  margin-top: 15px;
+  letter-spacing: 3px;
+  font-weight: 500;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fade-in 1.5s forwards 0.9s;
+}
+
+@keyframes floatPortalsComingSoon {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-15px); }
+}
+
+@keyframes fade-in {
+  to {
+    opacity: 1;
   }
 }

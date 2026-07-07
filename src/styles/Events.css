@@ -149,7 +149,7 @@
 .hero-subtitle {
     font-size: 1.15rem;
     font-weight: 300;
-    color: var(--text-muted);
+    color: #fff;
     max-width: 680px;
     margin: 0 auto 2.5rem;
     line-height: 1.7;
@@ -351,7 +351,7 @@ section {
 
 .section-subtitle {
     font-size: 1.1rem;
-    color: var(--text-muted);
+    color: #fff;
     max-width: 600px;
     margin: 0.5rem auto 0;
 }
@@ -856,13 +856,13 @@ section {
 
 .guide-text {
     font-size: 0.8rem;
-    color: #ffd250;
+    color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: 600;
     padding: 6px 18px;
     background: rgba(0, 255, 136, 0.04);
-    border: 1px solid rgba(0, 255, 136, 0.15);
+    border: 1px solid rgba(14, 14, 14, 0.15);
     border-radius: 20px;
     display: inline-block;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);

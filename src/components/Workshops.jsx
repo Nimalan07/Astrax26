@@ -9,7 +9,7 @@ const defenseWorkshops = [
     description: "Master the digital defense arts. Learn cybersecurity fundamentals, ethical hacking, vulnerability assessment, and how to defend against cyber threats in the modern digital age.",
     level: "Intermediate",
     duration: "3 Hours",
-    btnText: "Secure Seat"
+    btnText: "Coming Soon"
   },
   {
     id: "def-2",
@@ -17,7 +17,7 @@ const defenseWorkshops = [
     description: "Step into the shoes of a hacker to secure systems. Explore vulnerability scanning, network sniffing, exploit execution, and defensive countermeasures.",
     level: "Advanced",
     duration: "4 Hours",
-    btnText: "Secure Seat"
+    btnText: "Coming Soon"
   },
   {
     id: "def-3",
@@ -25,7 +25,7 @@ const defenseWorkshops = [
     description: "Secure modern cloud architectures. Understand IAM, container protection, Kubernetes security audits, and automated security scanning in CI/CD pipelines.",
     level: "Advanced",
     duration: "3 Hours",
-    btnText: "Secure Seat"
+    btnText: "Coming Soon"
   }
 ];
 
@@ -36,7 +36,7 @@ const cognitionWorkshops = [
     description: "Uncover the secrets of machine cognition. Dive into Artificial Intelligence, neural networks, supervised learning algorithms, and build models that think for themselves.",
     level: "Intermediate",
     duration: "4 Hours",
-    btnText: "Secure Seat"
+    btnText: "Coming Soon"
   },
   {
     id: "cog-2",
@@ -44,7 +44,7 @@ const cognitionWorkshops = [
     description: "Harness the power of Large Language Models. Master prompt patterns, build custom GPT agents, integrate vector databases, and implement semantic search.",
     level: "Beginner",
     duration: "3 Hours",
-    btnText: "Secure Seat"
+    btnText: "Coming Soon"
   },
   {
     id: "cog-3",
@@ -52,7 +52,7 @@ const cognitionWorkshops = [
     description: "Teach machines to see the world. Explore CNNs, image segmentation, object detection models like YOLO, and real-time video processing pipelines.",
     level: "Advanced",
     duration: "5 Hours",
-    btnText: "Secure Seat"
+    btnText: "Coming Soon"
   }
 ];
 

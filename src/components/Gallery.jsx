@@ -64,12 +64,19 @@ const Gallery = () => {
         ))}
       </div>
 
-      {/* Center Portals with Random Images Inside */}
+      {/* Center Portals Container */}
       <div className="center-portals-container">
-        <img src={galleryTitleImg} alt="Gallery" className="gallery-main-title-img" />
+        <img src={galleryTitleImg} alt="Gallery" className="gallery-main-title-img coming-soon-active" />
+
+        {/* Gallery Coming Soon Display */}
+        <div className="gallery-coming-soon-container">
+          <div className="gallery-coming-soon-tagline">TOGETHER, WE BUILD THE EXTRAORDINARY</div>
+          <h1 className="gallery-coming-soon-title">COMING SOON</h1>
+          <h2 className="gallery-coming-soon-subtitle">OUR POWER. THEIR VISION.</h2>
+        </div>
+
+        {/* Portals Wrapper (Commented out for later use)
         <div className="portals-wrapper">
-          
-          {/* Images inside the windows */}
           <div className="portal-wrapper-mobile">
             <div className="portal-content portal-left">
               <div className="portal-content-inner" onClick={nextLeft}>
@@ -125,10 +132,8 @@ const Gallery = () => {
             </div>
           </div>
           
-          {/* The main portals frame overlay */}
           <img src={portalsImg} alt="Portals Frame" className="portals-frame" />
           
-          {/* Buttons */}
           <div className="gallery-controls">
              <div className="gallery-control-item" style={{ left: '19.14%' }}>
                <img src={b1} alt="Left Control" className="rune-btn" style={{ width: '55.5px' }} onClick={nextLeft} />
@@ -141,6 +146,7 @@ const Gallery = () => {
              </div>
           </div>
         </div>
+        */}
       </div>
 
     </div>

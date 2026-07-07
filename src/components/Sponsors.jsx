@@ -132,7 +132,24 @@ const Sponsors = () => {
         <source src={sponsersBgMp4} type="video/mp4" />
       </video>
 
-      {/* Centered Sponsors Header */}
+      {/* Holographic Coming Soon Display */}
+      <div className="sponsors-coming-soon-container">
+        <div className="coming-soon-tagline">TOGETHER, WE BUILD THE EXTRAORDINARY</div>
+        <h1 className="coming-soon-title">COMING SOON</h1>
+        <h2 className="coming-soon-subtitle">OUR POWER. THEIR VISION.</h2>
+        
+        {/* Projector Base projecting the Coming Soon message */}
+        <div className="pedestal-container">
+          <div className="volumetric-beam"></div>
+          <div className="pedestal-base">
+            <div className="pedestal-ring-1"></div>
+            <div className="pedestal-ring-2"></div>
+            <div className="pedestal-core"></div>
+          </div>
+        </div>
+      </div>
+
+      {/* Centered Sponsors Header (Commented out for later use)
       <header className="sponsors-header">
         <div className="sponsors-tagline">TOGETHER, WE BUILD THE EXTRAORDINARY</div>
         <h1 className="sponsors-title">OUR SPONSORS</h1>
@@ -144,18 +161,16 @@ const Sponsors = () => {
           </div>
         </div>
       </header>
+      */}
 
-      {/* Main Content Layout */}
+      {/* Main Content Layout (Commented out for later use)
       <main className="sponsors-main-content">
-        {/* Carousel Panel */}
         <section className="sponsors-carousel-panel">
           <div className="carousel-viewport">
-            {/* Left Nav Arrow */}
             <div className="nav-arrow left" onClick={rotateLeft}>
               &lt;
             </div>
 
-            {/* 3D Cards Container */}
             <motion.div 
               className="carousel-container"
               drag="x"
@@ -193,13 +208,11 @@ const Sponsors = () => {
               })}
             </motion.div>
 
-            {/* Right Nav Arrow */}
             <div className="nav-arrow right" onClick={rotateRight}>
               &gt;
             </div>
           </div>
 
-          {/* Hologram Pedestal Base */}
           <div className="pedestal-container">
             <div className="volumetric-beam"></div>
             <div className="pedestal-base">
@@ -210,6 +223,7 @@ const Sponsors = () => {
           </div>
         </section>
       </main>
+      */}
 
 
 
