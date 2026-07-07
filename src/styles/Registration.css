@@ -126,10 +126,10 @@
 .card-container {
   position: relative;
   width: 100%;
-  /* Extra padding so glow bleeds out visibly beyond the card edge */
-  padding: 60px 0;
-  margin-top: -60px;
-  margin-bottom: -60px;
+  /* Padding lets glow bleed out beyond card edges */
+  padding: 40px 0;
+  margin-top: -40px;
+  margin-bottom: -40px;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -701,41 +701,42 @@
    Step 2 — Payment
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .payment-grid {
-  display: flex;
-  gap: 26px;
+  display: grid;
+  /* Left: ticket info | Center: QR | Right: form */
+  grid-template-columns: 180px 180px 1fr;
+  gap: 20px;
   width: 100%;
-  align-items: flex-start;
+  align-items: start;
   margin-top: 8px;
 }
 
 .ticket-panel {
-  flex: 0 0 190px;
   border: 1px solid rgba(201,161,74,0.32);
   border-radius: 6px;
-  padding: 18px 16px;
+  padding: 14px 12px;
   text-align: center;
   background: rgba(0,0,0,0.45);
 }
 
 .ticket-price {
   font-family: 'Cinzel', serif;
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 900;
   background: linear-gradient(180deg, #F5D060 0%, #C9860A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 10px rgba(212,168,53,0.4));
+  filter: drop-shadow(0 0 8px rgba(212,168,53,0.4));
 }
 
 .ticket-subtitle {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.58rem;
-  letter-spacing: 2px;
+  font-size: 0.54rem;
+  letter-spacing: 1.5px;
   color: #777;
   text-transform: uppercase;
-  margin: 4px 0 12px;
-  padding-bottom: 10px;
+  margin: 3px 0 8px;
+  padding-bottom: 8px;
   border-bottom: 1px dashed rgba(201,161,74,0.22);
 }
 
@@ -750,36 +751,39 @@
 
 .inclusions li {
   font-family: 'Poppins', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   color: #999;
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .check { color: #C9A14A; font-weight: bold; }
 
+/* QR panel — compact center column */
 .payment-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  display: contents; /* dissolve wrapper, children go into grid directly */
 }
 
 .qr-panel {
   text-align: center;
-  border: 1px solid rgba(201,161,74,0.18);
+  border: 1px solid rgba(201,161,74,0.22);
   border-radius: 6px;
-  padding: 10px;
+  padding: 16px 12px;
   background: rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 }
 
 .qr-label {
   font-family: 'Montserrat', sans-serif;
-  font-size: 0.58rem;
+  font-size: 0.6rem;
   letter-spacing: 2px;
-  color: #666;
+  color: #888;
   text-transform: uppercase;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 
 .qr-wrap {
@@ -803,13 +807,20 @@
 
 .qr-img {
   display: block;
-  width: 100px;
-  height: 100px;
+  width: 124px;
+  height: 124px;
   background: #fff;
   padding: 6px;
   border-radius: 4px;
   position: relative;
   z-index: 2;
+}
+
+/* Form column — third grid column */
+.payment-form-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 /* File upload */
