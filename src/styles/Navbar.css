@@ -1,5 +1,4 @@
 /* NAVBAR */
-
 .navbar{
     position:fixed;
     top:0;
@@ -288,11 +287,11 @@
   box-shadow: 0 0 8px var(--theme-purple-glow);
 }
 
-/* RESPONSIVE MEDIA QUERY */
 @media (max-width: 900px) {
   .navbar {
     padding: 0 24px;
     height: 75px;
+    top: 0;
   }
 
   .logo {

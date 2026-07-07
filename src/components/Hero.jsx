@@ -6,6 +6,7 @@ import powImg from "../assets/pow.png";
 import souImg from "../assets/sou.png";
 import sepImg from "../assets/sep.png";
 import eyeImg from "../assets/eye.png";
+import atheraLogo from "../assets/athera.jpeg";
 import Countdown from "./Countdown";
 import { triggerRazorpayPayment } from "../utils/payment";
 
@@ -29,13 +30,6 @@ function Hero({ onTabChange }) {
         ))}
       </div>
 
-      {/* Spacer to align with background video logo */}
-      <div className="hero-logo-spacer"></div>
-
-      {/* Event tagline */}
-      <p className="hero-tagline">
-        THE ULTIMATE INNOVATION ASSEMBLY
-      </p>
 
       {/* Infinity stone decorative strip */}
       <div className="hero-stones-strip">
@@ -79,6 +73,9 @@ function Hero({ onTabChange }) {
         ))}
       </div>
 
+      {/* Spacer to align with background video logo */}
+      <div className="hero-logo-spacer"></div>
+
       {/* CTA buttons */}
       <div className="hero-buttons">
         <button className="primary-btn" onClick={() => triggerRazorpayPayment({ amount: 50, description: "Astra X All Access Registration" })}>
@@ -91,6 +88,12 @@ function Hero({ onTabChange }) {
 
       {/* Countdown */}
       <Countdown />
+
+      {/* Presented by Athera Bottom Centered */}
+      <div className="hero-presented-by-bottom">
+        <span className="presented-by-label">PRESENTED BY</span>
+        <img src={atheraLogo} alt="Athera Logo" className="presented-by-logo" />
+      </div>
 
     </section>
   );
