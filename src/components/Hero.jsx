@@ -32,47 +32,7 @@ function Hero({ onTabChange }) {
 
 
       {/* Infinity stone decorative strip */}
-      <div className="hero-stones-strip">
-        {[
-          { color: "#a872ff", label: "Power", img: powImg },
-          { color: "#3aff8f", label: "Time", img: eyeImg },
-          { color: "#ff3e70", label: "Reality", img: aetImg },
-          { color: "#ff8e3c", label: "Soul", img: souImg, size: 65, margin: -18 },
-          { color: "#ffe14c", label: "Mind", img: sepImg },
-          { color: "#3cb6ff", label: "Space", img: tesImg, size: 35, margin: -5 },
-        ].map((stone, i) => (
-          <div key={i} className="hero-stone" style={{ animationDelay: `${2.2 + i * 0.12}s` }}>
-            {stone.img ? (
-              <img 
-                src={stone.img} 
-                alt={stone.label} 
-                className="stone-gem" 
-                style={{ 
-                  objectFit: "contain",
-                  width: stone.size ? `${stone.size}px` : "55px",
-                  height: stone.size ? `${stone.size}px` : "55px",
-                  marginTop: stone.margin !== undefined ? `${stone.margin}px` : "-15px",
-                  marginBottom: stone.margin !== undefined ? `${stone.margin}px` : "-15px"
-                }} 
-              />
-            ) : (
-              <div
-                className="stone-gem"
-                style={{
-                  "--stone-color": stone.color,
-                  "--stone-glow": `${stone.color}99`,
-                }}
-              >
-                <div className="stone-core" style={{ background: stone.color }} />
-                <div className="stone-facets" />
-                <div className="stone-glint" />
-              </div>
-            )}
-            <span className="stone-label" style={{ color: stone.color }}>{stone.label}</span>
-          </div>
-        ))}
-      </div>
-
+      
       {/* Spacer to align with background video logo */}
       <div className="hero-logo-spacer"></div>
 
