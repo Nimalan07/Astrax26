@@ -151,16 +151,22 @@
 
 @media (max-width: 768px) {
   .intro-controls {
-    bottom: 24px;
-    right: 24px;
-    left: 24px;
-    flex-direction: row;
-    justify-content: space-between;
+    bottom: 80px; /* Safe distance from bottom edge to prevent cutoff by mobile browser toolbars */
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 280px;
+    z-index: 100000;
   }
   
   .intro-btn {
-    padding: 10px 16px;
-    font-size: 0.65rem;
-    letter-spacing: 1px;
+    padding: 12px 24px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    min-width: unset; /* Let it shrink to text size */
+    width: auto;
   }
 }
