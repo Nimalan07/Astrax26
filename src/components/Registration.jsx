@@ -7,12 +7,11 @@ import {
 import { MdEmail } from "react-icons/md";
 import { RiBankCardFill } from "react-icons/ri";
 import "../styles/Registration.css";
-// Dynamic path strings to prevent compile errors when files are missing
-const qrImages = [
-  "/src/assets/qr1.jpeg",
-  "/src/assets/qr2.jpeg",
-  "/src/assets/qr3.jpeg"
-];
+import qr1 from "../assets/qr1.jpeg";
+import qr2 from "../assets/qr2.jpeg";
+import qr3 from "../assets/qr3.jpeg";
+
+const qrImages = [qr1, qr2, qr3];
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    Particle Canvas (Phase 1)
