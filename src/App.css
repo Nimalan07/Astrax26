@@ -169,4 +169,8 @@
     min-width: unset; /* Let it shrink to text size */
     width: auto;
   }
+
+  .intro-video {
+    object-fit: contain !important;
+  }
 }
