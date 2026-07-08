@@ -13,17 +13,16 @@
    Page Shell
    ━━━━━━━━━━━━━━━━━━━ */
 .reg-page {
-  position: fixed;
-  inset: 0;
-  overflow: hidden; /* Lock page to prevent scrolling */
-  background: #05040200;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #050401;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   padding-top: 96px; /* Offset the header/navbar */
-  padding-bottom: 0px;
+  padding-bottom: 60px; /* Space at bottom so layout is not cut off */
   font-family: 'Cinzel', serif;
-  background-color: #050401;
 }
 
 /* ━━━━━━━━━━━━━━━━━━━
@@ -1076,12 +1075,44 @@
    Responsive
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 @media (max-width: 760px) {
+  .reg-wrapper     { padding: 0 10px; }
   .reg-card        { padding: 18px 16px 14px; }
-  .fields-grid     { grid-template-columns: 1fr; }
-  .legend          { font-size: 2.2rem; }
-  .cta-btn         { width: 90%; }
-  .payment-grid    { flex-direction: column; }
-  .ticket-panel    { flex: none; width: 100%; }
+  .fields-grid     { grid-template-columns: 1fr; gap: 10px; }
+  
+  /* Progress Bar Mobile Optimizations */
+  .prog-bar        { max-width: 100%; }
+  .prog-circle     { width: 28px; height: 28px; font-size: 0.78rem; }
+  .prog-label      { font-size: 0.52rem; letter-spacing: 0.5px; }
+  .prog-line       { margin-bottom: 18px; }
+
+  /* Title sizing on Mobile */
+  .legend,
+  .step-body:has(.payment-grid) .legend {
+    font-size: 1.8rem !important;
+    letter-spacing: 4px !important;
+  }
+  .become-a,
+  .step-body:has(.payment-grid) .become-a {
+    font-size: 0.7rem !important;
+    letter-spacing: 4px !important;
+  }
+  
+  .cta-btn         { width: 95%; }
+  
+  /* Payment Grid Stacking */
+  .payment-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .payment-pass-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+  .inclusions {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  
   .mandala         { display: none; }
   .cursor-light    { display: none; }
 }
