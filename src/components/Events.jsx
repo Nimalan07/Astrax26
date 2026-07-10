@@ -28,7 +28,7 @@ const eventDatabase = [
 
 const PARTICLE_COUNT = 28;
 
-function Events() {
+function Events({ setActivePage }) {
 
   const containerRef    = useRef(null);
   const eyeWrapperRef   = useRef(null);
@@ -477,7 +477,11 @@ function Events() {
                     <strong className="meta-value">{activeEvent.participants}</strong>
                   </div>
                 </div>
-                <button className="saga-cta-btn" onClick={() => alert(`Entering ${activeEvent.title}...`)}>
+                <button className="saga-cta-btn" onClick={() => {
+                  if (setActivePage) {
+                    setActivePage("Registration");
+                  }
+                }}>
                   <span>ENTER SAGA</span>
                   <div className="btn-glow-effect"></div>
                 </button>

@@ -105,7 +105,7 @@ function App() {
 
       <div className="page-container">
         {activeTab === "Home"      && <Hero onTabChange={handleTabChange} />}
-        {activeTab === "Events"    && <Events />}
+        {activeTab === "Events"    && <Events setActivePage={(page) => handleTabChange(page)} />}
         {activeTab === "About Us"  && <AboutUs />}
         {activeTab === "Workshops" && (
           <Workshops 

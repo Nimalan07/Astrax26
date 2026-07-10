@@ -303,6 +303,10 @@
     display: none;
   }
 
+  .nav-actions-container {
+    display: none;
+  }
+
   .hamburger {
     display: flex;
   }
