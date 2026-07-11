@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import '../styles/Sponsors.css';
 import sponsersBgWebm from '../assets/sponsers.webm';
 import sponsersBgMp4 from '../assets/sponsers.mp4';
+import sponsersBgPoster from '../assets/sponsers-poster.webp';
 import { FaGoogle, FaMicrosoft, FaAws, FaReact } from 'react-icons/fa';
 import { SiNvidia, SiOpenai, SiIntel, SiAmd, SiTesla, SiMeta, SiGooglecloud, SiCisco } from 'react-icons/si';
 
@@ -119,7 +120,7 @@ const Sponsors = () => {
         muted 
         loop 
         playsInline 
-        preload="auto" 
+        poster={sponsersBgPoster}
         className="sponsors-bg-video"
         onEnded={() => {
           if (videoRef.current) {

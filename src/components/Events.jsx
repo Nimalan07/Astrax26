@@ -2,19 +2,20 @@ import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import "../styles/Events.css";
 
-import eventDebate from "../assets/event-debate.png";
-import eventTva from "../assets/event-tvh.jpeg";
-import eventTechnova from "../assets/event-technova.png";
-import eventNeural from "../assets/event-neural.jpeg";
-import eventPixel from "../assets/event-pixel.jpeg";
-import eventNexus from "../assets/event-nexus.jpeg";
-import eventIdeathon from "../assets/event-ideathon.jpeg";
+import eventDebate from "../assets/event-debate.webp";
+import eventTva from "../assets/event-tvh.webp";
+import eventTechnova from "../assets/event-technova.webp";
+import eventNeural from "../assets/event-neural.webp";
+import eventPixel from "../assets/event-pixel.webp";
+import eventNexus from "../assets/event-nexus.webp";
+import eventIdeathon from "../assets/event-ideathon.webp";
 import bgVideoWebm from "../assets/bg-video.webm";
 import bgVideoMp4 from "../assets/bg-video.mp4";
-import titleCard from "../assets/title card.png";
-import eyeOfAgamotto from "../assets/eye of agamotto.png";
-import eyeOpen from "../assets/eye_open.png";
-import eyeClose from "../assets/eye_close.png";
+import bgVideoPoster from "../assets/bg-video-poster.webp";
+import titleCard from "../assets/title card.webp";
+import eyeOfAgamotto from "../assets/eye of agamotto.webp";
+import eyeOpen from "../assets/eye_open.webp";
+import eyeClose from "../assets/eye_close.webp";
 
 const eventDatabase = [
   { id: "debate",    badge: "Tech Saga",            title: "AI Technical Debate", image: eventDebate,    prize: "₹5,000",   participants: "200+", description: "An intense battle of minds pitching human logic against artificial intelligence algorithms." },
@@ -327,7 +328,7 @@ function Events({ setActivePage }) {
   return (
     <div className="events-page-wrapper" ref={containerRef}>
       <div className="cosmic-bg">
-        <video className="bg-video" autoPlay loop muted playsInline>
+        <video className="bg-video" autoPlay loop muted playsInline poster={bgVideoPoster}>
           <source src={bgVideoWebm} type="video/webm" />
           <source src={bgVideoMp4} type="video/mp4" />
         </video>

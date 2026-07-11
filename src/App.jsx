@@ -1,20 +1,23 @@
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, Suspense } from "react";
 import "./App.css";
 import "./styles/Pages.css";
 
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Events from "./components/Events";
-import AboutUs from "./components/AboutUs";
-import Workshops from "./components/Workshops";
-import Gallery from "./components/Gallery";
-import Sponsors from "./components/Sponsors";
-import Registration from "./components/Registration";
+
+const Events = React.lazy(() => import("./components/Events"));
+const AboutUs = React.lazy(() => import("./components/AboutUs"));
+const Workshops = React.lazy(() => import("./components/Workshops"));
+const Gallery = React.lazy(() => import("./components/Gallery"));
+const Sponsors = React.lazy(() => import("./components/Sponsors"));
+const Registration = React.lazy(() => import("./components/Registration"));
 
 import bgVideoWebm from "./assets/hero.webm";
 import bgVideoMp4 from "./assets/hero.mp4";
 import introVideoWebm from "./assets/intro.webm";
 import introVideoMp4 from "./assets/intro.mp4";
+import heroVideoPoster from "./assets/hero-poster.webp";
+import introVideoPoster from "./assets/intro-poster.webp";
 
 function App() {
   const [showIntro, setShowIntro] = useState(true);
@@ -65,6 +68,7 @@ function App() {
             autoPlay
             muted
             playsInline
+            poster={introVideoPoster}
             onEnded={handleIntroEnd}
             className="intro-video"
           >
@@ -79,7 +83,7 @@ function App() {
         </div>
       )}
 
-      {activeTab === "Home" && (
+      {!showIntro && activeTab === "Home" && (
         <>
           <div className="bg-video-container">
             <video
@@ -87,6 +91,7 @@ function App() {
               muted
               loop
               playsInline
+              poster={heroVideoPoster}
               className="bg-video"
             >
               <source src={bgVideoWebm} type="video/webm" />
@@ -104,18 +109,20 @@ function App() {
       />
 
       <div className="page-container">
-        {activeTab === "Home"      && <Hero onTabChange={handleTabChange} />}
-        {activeTab === "Events"    && <Events setActivePage={(page) => handleTabChange(page)} />}
-        {activeTab === "About Us"  && <AboutUs />}
-        {activeTab === "Workshops" && (
-          <Workshops 
-            setActivePage={(page) => handleTabChange(page)} 
-            onToggleExpand={(isExpanded) => setHideNavbarOverride(isExpanded)}
-          />
-        )}
-        {activeTab === "Gallery"   && <Gallery />}
-        {activeTab === "Sponsors"  && <Sponsors />}
-        {activeTab === "Registration" && <Registration />}
+        <Suspense fallback={<div className="loading-fallback">Loading...</div>}>
+          {!showIntro && activeTab === "Home"      && <Hero onTabChange={handleTabChange} />}
+          {activeTab === "Events"    && <Events setActivePage={(page) => handleTabChange(page)} />}
+          {activeTab === "About Us"  && <AboutUs />}
+          {activeTab === "Workshops" && (
+            <Workshops 
+              setActivePage={(page) => handleTabChange(page)} 
+              onToggleExpand={(isExpanded) => setHideNavbarOverride(isExpanded)}
+            />
+          )}
+          {activeTab === "Gallery"   && <Gallery />}
+          {activeTab === "Sponsors"  && <Sponsors />}
+          {activeTab === "Registration" && <Registration />}
+        </Suspense>
       </div>
     </div>
   );

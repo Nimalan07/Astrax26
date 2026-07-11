@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import navLogo from "../assets/title.png";
-import tImg from "../assets/t.png";
-import pImg from "../assets/p.png";
-import rImg from "../assets/r.png";
-import sImg from "../assets/s.png";
-import mImg from "../assets/m.png";
-import spImg from "../assets/sp.png";
+import navLogo from "../assets/title.webp";
+import tImg from "../assets/t.webp";
+import pImg from "../assets/p.webp";
+import rImg from "../assets/r.webp";
+import sImg from "../assets/s.webp";
+import mImg from "../assets/m.webp";
+import spImg from "../assets/sp.webp";
 import "../styles/Navbar.css";
 import { triggerRazorpayPayment } from "../utils/payment";
 

@@ -1,12 +1,12 @@
 import "../styles/Hero.css";
-import titleImg from "../assets/title.png";
-import tesImg from "../assets/tes.png";
-import aetImg from "../assets/aet.png";
-import powImg from "../assets/pow.png";
-import souImg from "../assets/sou.png";
-import sepImg from "../assets/sep.png";
-import eyeImg from "../assets/eye.png";
-import atheraLogo from "../assets/athera.jpeg";
+import titleImg from "../assets/title.webp";
+import tesImg from "../assets/tes.webp";
+import aetImg from "../assets/aet.webp";
+import powImg from "../assets/pow.webp";
+import souImg from "../assets/sou.webp";
+import sepImg from "../assets/sep.webp";
+import eyeImg from "../assets/eye.webp";
+import atheraLogo from "../assets/athera.webp";
 import Countdown from "./Countdown";
 import { triggerRazorpayPayment } from "../utils/payment";
 

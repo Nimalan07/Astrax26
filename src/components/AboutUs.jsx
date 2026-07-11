@@ -1,8 +1,9 @@
 import aboutVideoWebm from "../assets/about-bg.webm";
 import aboutVideoMp4 from "../assets/about-bg.mp4";
-import chairmanImg from "../assets/chairman_img.jpg";
-import citImage from "../assets/CIT_image.png";
-import clubImg from "../assets/club_img.jpeg";
+import aboutVideoPoster from "../assets/about-bg-poster.webp";
+import chairmanImg from "../assets/chairman_img.webp";
+import citImage from "../assets/CIT_image.webp";
+import clubImg from "../assets/club_img.webp";
 import { motion } from "framer-motion";
 import "../styles/AboutUs.css";
 
@@ -82,7 +83,7 @@ function AboutSection({ section }) {
 function AboutUs() {
   return (
     <section className="about-section">
-      <video autoPlay muted loop playsInline className="about-video-bg">
+      <video autoPlay muted loop playsInline className="about-video-bg" poster={aboutVideoPoster}>
         <source src={aboutVideoWebm} type="video/webm" />
         <source src={aboutVideoMp4} type="video/mp4" />
       </video>

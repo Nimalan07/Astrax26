@@ -161,7 +161,7 @@
 .workshop-split-bg {
   position: absolute;
   inset: 0;
-  background-image: url('../assets/workshop_card.jpg');
+  background-image: url('../assets/workshop_card.webp');
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -283,11 +283,11 @@
 }
 
 .left-hover-bg {
-  background-image: url('../assets/left-work.png');
+  background-image: url('../assets/left-work.webp');
 }
 
 .right-hover-bg {
-  background-image: url('../assets/right-work.png');
+  background-image: url('../assets/right-work.webp');
 }
 
 .split-panel.expanded .panel-bg-hover {

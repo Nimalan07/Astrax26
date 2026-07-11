@@ -27,7 +27,7 @@
     pointer-events: none;
     overflow: hidden;
     background-image: linear-gradient(rgba(5, 4, 2, 0.88), rgba(5, 4, 2, 0.88)),
-        url('../assets/events bg.jpeg');
+        url('../assets/events bg.webp');
     background-size: cover;
     background-position: center;
 }

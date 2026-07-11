@@ -2,32 +2,32 @@ import React, { useState, useRef } from 'react';
 import '../styles/Gallery.css';
 
 // Background image
-import galleryBg from '../assets/gallery-bg.png';
+import galleryBg from '../assets/gallery-bg.webp';
 // Portals image
-import portalsImg from '../assets/new_portals1.png';
+import portalsImg from '../assets/new_portals1.webp';
 // Title image
-import galleryTitleImg from '../assets/gallery-title.png';
+import galleryTitleImg from '../assets/gallery-title.webp';
 
 // Frame Images
-import ironman1 from '../assets/ironman1.png';
-import ironman2 from '../assets/ironman2.png';
-import ironman3 from '../assets/ironman3.png';
-import ironman4 from '../assets/ironman4.png';
+import ironman1 from '../assets/ironman1.webp';
+import ironman2 from '../assets/ironman2.webp';
+import ironman3 from '../assets/ironman3.webp';
+import ironman4 from '../assets/ironman4.webp';
 
-import thor1 from '../assets/thor1.png';
-import thor2 from '../assets/thor2.png';
-import thor3 from '../assets/thor3.png';
-import thor4 from '../assets/thor4.png';
+import thor1 from '../assets/thor1.webp';
+import thor2 from '../assets/thor2.webp';
+import thor3 from '../assets/thor3.webp';
+import thor4 from '../assets/thor4.webp';
 
-import captain1 from '../assets/captain1.png';
-import captain2 from '../assets/captain2.png';
-import captain3 from '../assets/captain3.png';
-import captain4 from '../assets/captain4.png';
+import captain1 from '../assets/captain1.webp';
+import captain2 from '../assets/captain2.webp';
+import captain3 from '../assets/captain3.webp';
+import captain4 from '../assets/captain4.webp';
 
 // Buttons
-import b1 from '../assets/b1.png';
-import b2 from '../assets/b2.png';
-import b3 from '../assets/b3.png';
+import b1 from '../assets/b1.webp';
+import b2 from '../assets/b2.webp';
+import b3 from '../assets/b3.webp';
 
 /* ── Gallery Page ── */
 const Gallery = () => {

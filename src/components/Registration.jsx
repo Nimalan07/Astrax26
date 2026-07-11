@@ -7,9 +7,9 @@ import {
 import { MdEmail } from "react-icons/md";
 import { RiBankCardFill } from "react-icons/ri";
 import "../styles/Registration.css";
-import qr1 from "../assets/qr1.jpeg";
-import qr2 from "../assets/qr2.jpeg";
-import qr3 from "../assets/qr3.jpeg";
+import qr1 from "../assets/qr1.webp";
+import qr2 from "../assets/qr2.webp";
+import qr3 from "../assets/qr3.webp";
 
 const qrImages = [qr1, qr2, qr3];
 

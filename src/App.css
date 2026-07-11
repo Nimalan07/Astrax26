@@ -173,4 +173,41 @@
   .intro-video {
     object-fit: contain !important;
   }
-}
+}
+
+/* LOADING FALLBACK */
+.loading-fallback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  inset: 0;
+  background-color: #0b0714;
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  z-index: 9999;
+  text-transform: uppercase;
+}
+
+.loading-fallback::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 3px solid transparent;
+  border-top-color: #8b5cf6;
+  border-bottom-color: #dfb24f;
+  border-radius: 50%;
+  animation: spinner-spin 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.2);
+}
+
+@keyframes spinner-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
