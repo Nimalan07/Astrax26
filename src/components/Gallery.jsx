@@ -8,26 +8,15 @@ import portalsImg from '../assets/new_portals1.webp';
 // Title image
 import galleryTitleImg from '../assets/gallery-title.webp';
 
-// Frame Images
-import ironman1 from '../assets/ironman1.webp';
-import ironman2 from '../assets/ironman2.webp';
-import ironman3 from '../assets/ironman3.webp';
-import ironman4 from '../assets/ironman4.webp';
-
-import thor1 from '../assets/thor1.webp';
-import thor2 from '../assets/thor2.webp';
-import thor3 from '../assets/thor3.webp';
-import thor4 from '../assets/thor4.webp';
-
-import captain1 from '../assets/captain1.webp';
-import captain2 from '../assets/captain2.webp';
-import captain3 from '../assets/captain3.webp';
-import captain4 from '../assets/captain4.webp';
-
 // Buttons
 import b1 from '../assets/b1.webp';
 import b2 from '../assets/b2.webp';
 import b3 from '../assets/b3.webp';
+
+// Dynamically import all optimized webp images from the gallery directories
+const leftImages = Object.values(import.meta.glob('../assets/gallery1/*.webp', { eager: true, import: 'default' }));
+const centerImages = Object.values(import.meta.glob('../assets/gallery2/*.webp', { eager: true, import: 'default' }));
+const rightImages = Object.values(import.meta.glob('../assets/gallery3/*.webp', { eager: true, import: 'default' }));
 
 /* ── Gallery Page ── */
 const Gallery = () => {
@@ -37,13 +26,21 @@ const Gallery = () => {
   const [centerIndex, setCenterIndex] = useState(0);
   const [rightIndex, setRightIndex] = useState(0);
 
-  const leftImages = [ironman1, ironman2, ironman3, ironman4];
-  const centerImages = [thor1, thor2, thor3, thor4];
-  const rightImages = [captain1, captain2, captain3, captain4];
-
-  const nextLeft = () => setLeftIndex((prev) => (prev + 1) % leftImages.length);
-  const nextCenter = () => setCenterIndex((prev) => (prev + 1) % centerImages.length);
-  const nextRight = () => setRightIndex((prev) => (prev + 1) % rightImages.length);
+  const nextLeft = () => {
+    if (leftImages.length > 0) {
+      setLeftIndex((prev) => (prev + 1) % leftImages.length);
+    }
+  };
+  const nextCenter = () => {
+    if (centerImages.length > 0) {
+      setCenterIndex((prev) => (prev + 1) % centerImages.length);
+    }
+  };
+  const nextRight = () => {
+    if (rightImages.length > 0) {
+      setRightIndex((prev) => (prev + 1) % rightImages.length);
+    }
+  };
 
   return (
     <div className="gallery-page">
@@ -66,16 +63,8 @@ const Gallery = () => {
 
       {/* Center Portals Container */}
       <div className="center-portals-container">
-        <img src={galleryTitleImg} alt="Gallery" className="gallery-main-title-img coming-soon-active" />
+        <img src={galleryTitleImg} alt="Gallery" className="gallery-main-title-img" />
 
-        {/* Gallery Coming Soon Display */}
-        <div className="gallery-coming-soon-container">
-          <div className="gallery-coming-soon-tagline">TOGETHER, WE BUILD THE EXTRAORDINARY</div>
-          <h1 className="gallery-coming-soon-title">COMING SOON</h1>
-          <h2 className="gallery-coming-soon-subtitle">OUR POWER. THEIR VISION.</h2>
-        </div>
-
-        {/* Portals Wrapper (Commented out for later use)
         <div className="portals-wrapper">
           <div className="portal-wrapper-mobile">
             <div className="portal-content portal-left">
@@ -84,7 +73,7 @@ const Gallery = () => {
                   <img 
                     key={`left-${idx}`} 
                     src={img} 
-                    alt={`Ironman ${idx + 1}`} 
+                    alt={`Gallery 1 Image ${idx + 1}`} 
                     className={leftIndex === idx ? 'active-image' : 'inactive-image'}
                   />
                 ))}
@@ -102,7 +91,7 @@ const Gallery = () => {
                   <img 
                     key={`center-${idx}`} 
                     src={img} 
-                    alt={`Thor ${idx + 1}`} 
+                    alt={`Gallery 2 Image ${idx + 1}`} 
                     className={centerIndex === idx ? 'active-image' : 'inactive-image'}
                   />
                 ))}
@@ -120,7 +109,7 @@ const Gallery = () => {
                   <img 
                     key={`right-${idx}`} 
                     src={img} 
-                    alt={`Captain America ${idx + 1}`} 
+                    alt={`Gallery 3 Image ${idx + 1}`} 
                     className={rightIndex === idx ? 'active-image' : 'inactive-image'}
                   />
                 ))}
@@ -146,7 +135,6 @@ const Gallery = () => {
              </div>
           </div>
         </div>
-        */}
       </div>
 
     </div>

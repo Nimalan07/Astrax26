@@ -111,7 +111,12 @@ function App() {
       <div className="page-container">
         <Suspense fallback={<div className="loading-fallback">Loading...</div>}>
           {!showIntro && activeTab === "Home"      && <Hero onTabChange={handleTabChange} />}
-          {activeTab === "Events"    && <Events setActivePage={(page) => handleTabChange(page)} />}
+          {activeTab === "Events"    && (
+            <Events 
+              setActivePage={(page) => handleTabChange(page)} 
+              onToggleExpand={(isOpen) => setHideNavbarOverride(isOpen)} 
+            />
+          )}
           {activeTab === "About Us"  && <AboutUs />}
           {activeTab === "Workshops" && (
             <Workshops 
