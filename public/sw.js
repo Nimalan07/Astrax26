@@ -1,11 +1,22 @@
-const CACHE_NAME = 'astra-assets-cache-v1';
+const CACHE_NAME = 'astra-assets-cache-v2';
 
 self.addEventListener('install', (event) => {
   self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
-  event.waitUntil(self.clients.claim());
+  event.waitUntil(
+    caches.keys().then((cacheNames) => {
+      return Promise.all(
+        cacheNames.map((cacheName) => {
+          if (cacheName !== CACHE_NAME) {
+            console.log('Deleting old cache:', cacheName);
+            return caches.delete(cacheName);
+          }
+        })
+      );
+    }).then(() => self.clients.claim())
+  );
 });
 
 self.addEventListener('fetch', (event) => {
@@ -24,23 +35,49 @@ self.addEventListener('fetch', (event) => {
   if (isVideo) {
     event.respondWith(handleRangeRequest(event));
   } else {
-    // Cache-first for images, fonts, scripts, stylesheets
-    event.respondWith(
-      caches.match(request).then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse;
-        }
-        return fetch(request).then((response) => {
-          if (response && response.status === 200) {
-            const responseToCache = response.clone();
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(request, responseToCache);
-            });
+    const isCode = request.destination === 'document' ||
+                   request.destination === 'script' ||
+                   request.destination === 'style' ||
+                   url.pathname.endsWith('.html') ||
+                   url.pathname.endsWith('.js') ||
+                   url.pathname.endsWith('.css');
+
+    if (isCode) {
+      // Network-first strategy for code/logic files to prevent stale caching issues
+      event.respondWith(
+        fetch(request)
+          .then((response) => {
+            if (response && response.status === 200) {
+              const responseToCache = response.clone();
+              caches.open(CACHE_NAME).then((cache) => {
+                cache.put(request, responseToCache);
+              });
+            }
+            return response;
+          })
+          .catch(() => {
+            return caches.match(request);
+          })
+      );
+    } else {
+      // Cache-first strategy for images, fonts, and other static assets
+      event.respondWith(
+        caches.match(request).then((cachedResponse) => {
+          if (cachedResponse) {
+            return cachedResponse;
           }
-          return response;
-        });
-      })
-    );
+          return fetch(request).then((response) => {
+            if (response && response.status === 200) {
+              const responseToCache = response.clone();
+              caches.open(CACHE_NAME).then((cache) => {
+                cache.put(request, responseToCache);
+              });
+            }
+            return response;
+          });
+        })
+      );
+    }
   }
 });
 
