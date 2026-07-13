@@ -5,12 +5,22 @@ import "./styles/Pages.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 
-const Events = React.lazy(() => import("./components/Events"));
-const AboutUs = React.lazy(() => import("./components/AboutUs"));
-const Workshops = React.lazy(() => import("./components/Workshops"));
-const Gallery = React.lazy(() => import("./components/Gallery"));
-const Sponsors = React.lazy(() => import("./components/Sponsors"));
-const Registration = React.lazy(() => import("./components/Registration"));
+const lazyWithRetry = (componentImport) => {
+  return React.lazy(() => 
+    componentImport().catch((error) => {
+      console.error("Chunk loading failed, retrying page load:", error);
+      window.location.reload();
+      return new Promise(() => {});
+    })
+  );
+};
+
+const Events = lazyWithRetry(() => import("./components/Events"));
+const AboutUs = lazyWithRetry(() => import("./components/AboutUs"));
+const Workshops = lazyWithRetry(() => import("./components/Workshops"));
+const Gallery = lazyWithRetry(() => import("./components/Gallery"));
+const Sponsors = lazyWithRetry(() => import("./components/Sponsors"));
+const Registration = lazyWithRetry(() => import("./components/Registration"));
 
 import bgVideoWebm from "./assets/hero.webm";
 import bgVideoMp4 from "./assets/hero.mp4";
