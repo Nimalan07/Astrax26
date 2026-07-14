@@ -29,12 +29,42 @@ import introVideoMp4 from "./assets/intro.mp4";
 import heroVideoPoster from "./assets/hero-poster.webp";
 import introVideoPoster from "./assets/intro-poster.webp";
 
+const getInitialTab = () => {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const tabParam = params.get("tab");
+    if (tabParam) {
+      const normalized = tabParam.trim().toLowerCase();
+      if (normalized === "registration" || normalized === "register") return "Registration";
+      if (normalized === "events") return "Events";
+      if (normalized === "workshops") return "Workshops";
+      if (normalized === "gallery") return "Gallery";
+      if (normalized === "sponsors") return "Sponsors";
+      if (normalized === "about") return "About Us";
+    }
+    const hash = window.location.hash;
+    if (hash) {
+      const normalized = hash.replace("#", "").trim().toLowerCase();
+      if (normalized === "registration" || normalized === "register") return "Registration";
+      if (normalized === "events") return "Events";
+      if (normalized === "workshops") return "Workshops";
+      if (normalized === "gallery") return "Gallery";
+      if (normalized === "sponsors") return "Sponsors";
+      if (normalized === "about") return "About Us";
+    }
+  } catch (e) {
+    console.error("Error reading URL parameters", e);
+  }
+  return "Home";
+};
+
 function App() {
-  const [showIntro, setShowIntro] = useState(true);
+  const initialTab = getInitialTab();
+  const [showIntro, setShowIntro] = useState(initialTab === "Home");
   const [fadeIntro, setFadeIntro] = useState(false);
   const videoRef = useRef(null);
 
-  const [activeTab, setActiveTab] = useState("Home");
+  const [activeTab, setActiveTab] = useState(initialTab);
   const [hideNavbarOverride, setHideNavbarOverride] = useState(false);
 
   useEffect(() => {
@@ -54,6 +84,25 @@ function App() {
       document.documentElement.classList.remove("gallery-active");
       document.body.classList.remove("gallery-active");
     }
+  }, [activeTab]);
+
+  useEffect(() => {
+    const handleUrlChange = () => {
+      const targetTab = getInitialTab();
+      if (targetTab !== activeTab) {
+        setActiveTab(targetTab);
+        if (targetTab !== "Home") {
+          setShowIntro(false);
+        }
+      }
+    };
+
+    window.addEventListener("hashchange", handleUrlChange);
+    window.addEventListener("popstate", handleUrlChange);
+    return () => {
+      window.removeEventListener("hashchange", handleUrlChange);
+      window.removeEventListener("popstate", handleUrlChange);
+    };
   }, [activeTab]);
 
   const handleIntroEnd = () => {
