@@ -5,54 +5,22 @@ import upcomingVideoMp4 from "../assets/upcoming.mp4";
 import upcomingVideoPoster from "../assets/upcoming-poster.webp";
 const defenseWorkshops = [
   {
-    id: "def-1",
-    title: "CYBER SECURITY 101",
-    description: "Master the digital defense arts. Learn cybersecurity fundamentals, ethical hacking, vulnerability assessment, and how to defend against cyber threats in the modern digital age.",
-    level: "Intermediate",
-    duration: "3 Hours",
-    btnText: "Coming Soon"
-  },
-  {
-    id: "def-2",
-    title: "ETHICAL HACKING",
-    description: "Step into the shoes of a hacker to secure systems. Explore vulnerability scanning, network sniffing, exploit execution, and defensive countermeasures.",
-    level: "Advanced",
-    duration: "4 Hours",
-    btnText: "Coming Soon"
-  },
-  {
-    id: "def-3",
-    title: "CLOUD SECURITY",
-    description: "Secure modern cloud architectures. Understand IAM, container protection, Kubernetes security audits, and automated security scanning in CI/CD pipelines.",
-    level: "Advanced",
-    duration: "3 Hours",
+    id: "w2",
+    title: "CODELESS AI : FROM PROMPT TO PROTOTYPE",
+    description: "Build AI-powered applications using prompts, LLMs, and no-code/low-code tools without extensive programming.",
+    level: "Beginner to Intermediate",
+    duration: "Approx. 1.5 Hours",
     btnText: "Coming Soon"
   }
 ];
 
 const cognitionWorkshops = [
   {
-    id: "cog-1",
-    title: "INTRO TO AI/ML",
-    description: "Uncover the secrets of machine cognition. Dive into Artificial Intelligence, neural networks, supervised learning algorithms, and build models that think for themselves.",
-    level: "Intermediate",
-    duration: "4 Hours",
-    btnText: "Coming Soon"
-  },
-  {
-    id: "cog-2",
-    title: "GENERATIVE AI",
-    description: "Harness the power of Large Language Models. Master prompt patterns, build custom GPT agents, integrate vector databases, and implement semantic search.",
-    level: "Beginner",
-    duration: "3 Hours",
-    btnText: "Coming Soon"
-  },
-  {
-    id: "cog-3",
-    title: "COMPUTER VISION",
-    description: "Teach machines to see the world. Explore CNNs, image segmentation, object detection models like YOLO, and real-time video processing pipelines.",
-    level: "Advanced",
-    duration: "5 Hours",
+    id: "w3",
+    title: "FUTURESTACK : CRAFTING THE NEXT GENERATION OF AI",
+    description: "Explore Agentic AI, RAG, Multimodal AI, and real-world AI application development.",
+    level: "Intermediate to Advanced",
+    duration: "Approx. 1.5 Hours",
     btnText: "Coming Soon"
   }
 ];
