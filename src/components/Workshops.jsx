@@ -10,7 +10,7 @@ const defenseWorkshops = [
     description: "Build AI-powered applications using prompts, LLMs, and no-code/low-code tools without extensive programming.",
     level: "Beginner to Intermediate",
     duration: "Approx. 1.5 Hours",
-    btnText: "Coming Soon"
+    btnText: "REGISTER NOW"
   }
 ];
 
@@ -21,7 +21,7 @@ const cognitionWorkshops = [
     description: "Explore Agentic AI, RAG, Multimodal AI, and real-world AI application development.",
     level: "Intermediate to Advanced",
     duration: "Approx. 1.5 Hours",
-    btnText: "Coming Soon"
+    btnText: "REGISTER NOW"
   }
 ];
 
@@ -75,7 +75,7 @@ function Workshops({ setActivePage, onToggleExpand }) {
     <section id="workshops" className={`workshops-section ${isOpen ? "expanded" : "collapsed"}`}>
       
       {!isOpen ? (
-        // COLLAPSED / COMING SOON VIEW (Full Screen Video Background)
+        // COLLAPSED / EXPLORE VIEW (Full Screen Video Background)
         <>
           <video autoPlay muted loop playsInline className="workshop-video-bg" poster={upcomingVideoPoster}>
             <source src={upcomingVideoWebm} type="video/webm" />
@@ -90,7 +90,7 @@ function Workshops({ setActivePage, onToggleExpand }) {
               <span className="teaser-tagline">LEARN • BUILD • INNOVATE</span>
               <h2 className="teaser-title">WORKSHOPS</h2>
               <div className="coming-soon-badge-container">
-                <span className="coming-soon-badge">COMING SOON</span>
+                <span className="coming-soon-badge">EXPLORE NOW</span>
               </div>
               <p className="teaser-hint">Click to Reveal & Explore</p>
             </div>
@@ -149,7 +149,7 @@ function Workshops({ setActivePage, onToggleExpand }) {
                   // Neutral View Content
                   <>
                     <div className="panel-glow-ring blue-ring"></div>
-                    <span className="panel-side-tag">PATH OF DEFENSE</span>
+                    <span className="panel-side-tag">PATH OF PROTOTYPING</span>
                     
                     <ul className="neutral-workshop-list">
                       {defenseWorkshops.map((ws) => (
@@ -167,7 +167,7 @@ function Workshops({ setActivePage, onToggleExpand }) {
                 ) : (
                   // Expanded View (Show all 3 workshops side-by-side)
                   <div className="expanded-path-container">
-                    <span className="panel-side-tag blue-tag-text">PATH OF DEFENSE</span>
+                    <span className="panel-side-tag blue-tag-text">PATH OF PROTOTYPING</span>
                     <div className="expanded-workshops-grid">
                       {defenseWorkshops.map((ws) => (
                         <div key={ws.id} className="workshop-card blue-card">
@@ -183,7 +183,13 @@ function Workshops({ setActivePage, onToggleExpand }) {
                             </div>
                           </div>
 
-                          <button className="register-now-split-btn blue-btn">
+                          <button 
+                            className="register-now-split-btn blue-btn"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActivePage("Registration");
+                            }}
+                          >
                             {ws.btnText}
                           </button>
                         </div>
@@ -246,7 +252,13 @@ function Workshops({ setActivePage, onToggleExpand }) {
                             </div>
                           </div>
 
-                          <button className="register-now-split-btn orange-btn">
+                          <button 
+                            className="register-now-split-btn orange-btn"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setActivePage("Registration");
+                            }}
+                          >
                             {ws.btnText}
                           </button>
                         </div>
