@@ -262,7 +262,7 @@ const eventDatabase = [
       venue: "Pega Lab",
       date: "22nd July 2026",
       objective: "To democratize AI interaction and prove that complex AI models can be utilized creatively by students without requiring deep coding backgrounds, while enhancing public speaking, quick ideation, and cultivating ethical prompting.",
-      teamSize: "Refer to Rules / Organizers",
+      teamSize: "2 Members per team",
       prizeDetails: {
         winner: "₹2,500",
         runnerUp: "₹1,500 (2nd) • ₹1,000 (3rd)"
