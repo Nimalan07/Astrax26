@@ -105,6 +105,12 @@ function App() {
     };
   }, [activeTab]);
 
+  useEffect(() => {
+    if (activeTab === "Registration") {
+      window.location.href = "https://unstop.com/o/P0fzDmN?utm_medium=Share&utm_source=athercit72249&utm_campaign=Events";
+    }
+  }, [activeTab]);
+
   const handleIntroEnd = () => {
     setFadeIntro(true);
     setTimeout(() => setShowIntro(false), 800);
