@@ -23,7 +23,7 @@ const eventDatabase = [
     badge: "Tech Saga",            
     title: "AI Technical Debate", 
     image: eventDebate,    
-    prize: "₹5,000",   
+    prize: "₹3,000",   
     participants: "200+", 
     description: "An intense battle of minds pitching human logic against artificial intelligence algorithms.",
     details: {
@@ -32,8 +32,8 @@ const eventDatabase = [
       objective: "To encourage students to critically examine the opportunities, challenges, and future implications of Artificial Intelligence through evidence-based discussions on contemporary AI topics while developing analytical thinking, research abilities, teamwork, and persuasive communication skills.",
       teamSize: "Exactly 5 members per team",
       prizeDetails: {
-        winner: "₹3,000",
-        runnerUp: "₹2,000"
+        winner: "₹2,000",
+        runnerUp: "₹1,000"
       },
       format: {
         intro: "The competition consists of two rounds: Round 1 (Preliminary Debate) and Round 2 (Final Debate).",
@@ -103,7 +103,7 @@ const eventDatabase = [
     badge: "Quest Saga",            
     title: "TVA: Variant Hunt",   
     image: eventTva,       
-    prize: "₹5,000",   
+    prize: "₹3,000",   
     participants: "500+", 
     description: "A high-speed multiverse treasure hunt across complex temporal nodes.",
     details: {
@@ -112,8 +112,8 @@ const eventDatabase = [
       objective: "TVA: The Variant Hunt is a story-driven technical treasure hunt inspired by the concept of timeline management and multiversal exploration. Participants take on the role of Variants pursued by the TVA and must navigate through a series of challenges involving decoding, logical reasoning, technical problem-solving, and puzzle-solving to uncover the truth behind the Sacred Timeline.",
       teamSize: "Exactly 4 members per team",
       prizeDetails: {
-        winner: "₹3,000",
-        runnerUp: "₹2,000"
+        winner: "₹2,000",
+        runnerUp: "₹1,000"
       },
       format: {
         intro: "The competition consists of five sequential rounds. All rounds must be completed in order, and teams that qualify in one round advance to the next.",
@@ -188,7 +188,7 @@ const eventDatabase = [
     badge: "Innovation Challenge",  
     title: "Technova",            
     image: eventTechnova,  
-    prize: "₹5,000",   
+    prize: "₹3,000",   
     participants: "350+", 
     description: "A technical innovation challenge containing tech rapid fires and Marvel-themed AI image generation.",
     details: {
@@ -197,8 +197,8 @@ const eventDatabase = [
       objective: "To encourage students to enhance their technical knowledge, improve their quick-thinking abilities, and showcase their creativity through technology-based challenges, developing problem-solving skills, technical awareness, and innovative thinking.",
       teamSize: "1–2 participants per team",
       prizeDetails: {
-        winner: "₹2,500",
-        runnerUp: "₹1,500 (2nd) • ₹1,000 (3rd)"
+        winner: "₹2,000",
+        runnerUp: "₹1,000"
       },
       format: {
         intro: "The competition consists of two rounds: Round 1 (Tech Rapid Fire) and Round 2 (Marvel AI Image Generation Challenge).",
@@ -246,7 +246,7 @@ const eventDatabase = [
           { name: "Prompt Engineering Skills", marks: "15 pts" },
           { name: "Presentation & Explanation", marks: "15 pts" }
         ],
-        selection: "Prizes: First Prize ₹2,500; Second Prize ₹1,500; Third Prize ₹1,000. Overall winner selection is determined by cumulative score out of 100 points across the technical and image generation rounds."
+        selection: "Prizes: First Prize ₹2,000; Second Prize ₹1,000. Overall winner selection is determined by cumulative score out of 100 points across the technical and image generation rounds."
       }
     }
   },
@@ -255,7 +255,7 @@ const eventDatabase = [
     badge: "Tech Saga",             
     title: "Neural Knockout",     
     image: eventNeural,    
-    prize: "₹5,000",   
+    prize: "₹3,000",   
     participants: "300+", 
     description: "Neural Knockout is a premier high-speed, interactive tournament designed to merge rapid prompt engineering with creative public performance. Participating teams will leverage modern Artificial Intelligence to solve unconventional, humorous challenges and perform their AI-generated outputs live.",
     details: {
@@ -264,8 +264,8 @@ const eventDatabase = [
       objective: "To democratize AI interaction and prove that complex AI models can be utilized creatively by students without requiring deep coding backgrounds, while enhancing public speaking, quick ideation, and cultivating ethical prompting.",
       teamSize: "2 Members per team",
       prizeDetails: {
-        winner: "₹2,500",
-        runnerUp: "₹1,500 (2nd) • ₹1,000 (3rd)"
+        winner: "₹2,000",
+        runnerUp: "₹1,000"
       },
       format: {
         intro: "The event is strictly structured to maximize audience engagement, bridging the gap between deep technical AI tools and pure, high-energy entertainment. The tournament consists of three main challenges:",
@@ -334,7 +334,7 @@ const eventDatabase = [
     badge: "Design Saga",           
     title: "Pixel Whisper",       
     image: eventPixel,     
-    prize: "₹5,000",   
+    prize: "₹3,000",   
     participants: "250+", 
     description: "Where design parameters are generated purely by vocal commands. A test of coding logic, UI/UX recreation, and speech-driven teamwork.",
     details: {
@@ -343,8 +343,8 @@ const eventDatabase = [
       objective: "To evaluate participants' coding aptitude, problem-solving abilities, communication skills, creativity, and UI/UX design proficiency through a combination of coding and collaborative design challenges.",
       teamSize: "Exactly 2 members per team",
       prizeDetails: {
-        winner: "₹3,000",
-        runnerUp: "₹2,000"
+        winner: "₹2,000",
+        runnerUp: "₹1,000"
       },
       format: {
         intro: "The event takes place over 60 minutes in total, divided into two rounds. Teams must pass the first round to qualify for the second design round.",
@@ -392,7 +392,7 @@ const eventDatabase = [
           { name: "Communication & Coordination (R2)", marks: "15%" },
           { name: "Creativity & Completion Time (R2)", marks: "10%" }
         ],
-        selection: "Prizes: Winner receives ₹3,000; Runner-Up receives ₹2,000. Evaluation is based on logical coding correctness in Round 1 and the exact replication fidelity/coordination in Round 2."
+        selection: "Prizes: Winner receives ₹2,000; Runner-Up receives ₹1,000. Evaluation is based on logical coding correctness in Round 1 and the exact replication fidelity/coordination in Round 2."
       }
     }
   },
@@ -401,7 +401,7 @@ const eventDatabase = [
     badge: "Quest Saga",            
     title: "Nexus Grid",          
     image: eventNexus,     
-    prize: "₹5,000",   
+    prize: "₹3,000",   
     participants: "400+", 
     description: "A high-speed cyber bingo event designed to test algorithmic speed and basic tech trivia.",
     details: {
@@ -410,8 +410,8 @@ const eventDatabase = [
       objective: "To test participants' technical knowledge, logical thinking, and quick decision-making skills through an interactive Bingo-based challenge.",
       teamSize: "Individual Participant",
       prizeDetails: {
-        winner: "₹2,500",
-        runnerUp: "₹1,500 (2nd) • ₹1,000 (3rd)"
+        winner: "₹2,000",
+        runnerUp: "₹1,000"
       },
       format: {
         intro: "Participants will be provided with a Bingo card containing technical terms, technologies, programming concepts, logos, and innovations. The event coordinator will present clues in the form of Technical Questions, Images and Logos, Technology Descriptions, Abbreviations and Acronyms, and Audio/Visual Hints. Participants must identify the correct answer and mark it on their Bingo card.",
@@ -466,7 +466,7 @@ const eventDatabase = [
     badge: "Flagship Saga",         
     title: "Ideathon",            
     image: eventIdeathon,  
-    prize: "₹5,000", 
+    prize: "₹3,000", 
     participants: "600+", 
     description: "The crowning flagship event of Astra-X. Pitch revolutionary product concepts and present practical solutions to real-world problems.",
     details: {
@@ -475,8 +475,8 @@ const eventDatabase = [
       objective: "To encourage students to ideate, innovate, and present practical solutions to real-world problems across technology, healthcare, finance, agriculture, education, sustainability, and social impact while demonstrating creativity, critical thinking, and problem-solving skills.",
       teamSize: "1–2 participants per team",
       prizeDetails: {
-        winner: "₹3,000",
-        runnerUp: "₹2,000"
+        winner: "₹2,000",
+        runnerUp: "₹1,000"
       },
       format: {
         intro: "The competition consists of two rounds: Round 1 (Idea Sprint & Screening) and Round 2 (Final Pitch).",
@@ -526,7 +526,7 @@ const eventDatabase = [
         selection: "Shortlisted teams from Round 1 will pitch in Round 2. The final score is based on cumulative evaluation of innovation, presentation, and practicality."
       }
     }
-  },
+  }
 ];
 
 const PARTICLE_COUNT = 28;
@@ -1144,7 +1144,7 @@ function Events({ setActivePage, onToggleExpand }) {
             {[
               { target: 3000,   label: "Expected Heroes" },
               { target: 7,      label: "Upcoming Sagas" },
-              { target: 35000, label: "Prizes to Win (₹)" },
+              { target: 21000, label: "Prizes to Win (₹)" },
             ].map((stat, i) => (
               <div key={i} className="stat-card">
                 <div className="stat-number" data-target={stat.target} ref={el => numbersRef.current[i] = el}>0</div>
