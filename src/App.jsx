@@ -107,7 +107,7 @@ function App() {
 
   useEffect(() => {
     if (activeTab === "Registration") {
-      window.location.href = "https://unstop.com/o/P0fzDmN?utm_medium=Share&utm_source=athercit72249&utm_campaign=Events";
+      window.location.href = "https://unstop.com/events/astrax-26-chennai-institute-of-technology-1717881";
     }
   }, [activeTab]);
 
