@@ -1144,7 +1144,7 @@ function Events({ setActivePage, onToggleExpand }) {
             {[
               { target: 3000,   label: "Expected Heroes" },
               { target: 7,      label: "Upcoming Sagas" },
-              { target: 21000, label: "Prizes to Win (₹)" },
+              { target: 150000, label: "Prizes to Win (₹)" },
             ].map((stat, i) => (
               <div key={i} className="stat-card">
                 <div className="stat-number" data-target={stat.target} ref={el => numbersRef.current[i] = el}>0</div>
