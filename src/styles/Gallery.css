@@ -1,0 +1,558 @@
+/* src/styles/Gallery.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&display=swap');
+
+
+/* --- BASE STYLES --- */
+.gallery-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+  background-color: #050505;
+  font-family: 'Inter', sans-serif;
+  z-index: 10;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.gallery-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  filter: brightness(0.9) contrast(1.1); 
+}
+
+.gallery-overlay {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.4) 100%);
+  z-index: 1;
+}
+
+/* --- HERO SECTION --- */
+.gallery-hero {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  padding-top: 12vh;
+  margin-bottom: 2rem;
+}
+
+.gallery-tagline {
+  font-family: var(--font-cinzel-dec);
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  color: #e6a33e;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(230, 163, 62, 0.5);
+}
+
+.gallery-title {
+  font-size: 4.5rem;
+  letter-spacing: 8px;
+  font-weight: 900;
+  margin: 0;
+  background: linear-gradient(180deg, #fff 0%, #b3b3b3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.gallery-description {
+  font-size: 1.1rem;
+  color: #aaa;
+  margin-top: 1rem;
+}
+
+.title-glow-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(230, 163, 62, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: -1;
+  filter: blur(20px);
+}
+
+/* --- GATEWAYS CONTAINER --- */
+.gateways-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  position: relative;
+  z-index: 10;
+  padding: 0 5%;
+  perspective: 1000px;
+}
+
+.gateway {
+  flex: 1;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.gateway-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.gateway-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 0.3rem 0;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.gateway-subtitle {
+  font-size: 0.9rem;
+  color: #e6a33e;
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+/* --- GATEWAY DOOR (3D CARD) --- */
+.gateway-door {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  background: #111;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(230, 163, 62, 0.2);
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.gateway-door:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 30px rgba(230, 163, 62, 0.3), inset 0 0 0 1px rgba(230, 163, 62, 0.5);
+}
+
+.slideshow-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slide-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* Hover Shine Effect */
+.door-shine {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+  transform: skewX(-25deg);
+  transition: 0s;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.gateway-door:hover .door-shine {
+  left: 200%;
+  transition: left 0.8s ease-in-out;
+}
+
+/* Hover Label */
+.door-hover-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  text-align: center;
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  color: #e6a33e;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.gateway-door:hover .door-hover-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Magical Flash & Sweep */
+.energy-sweep {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: #e6a33e;
+  box-shadow: 0 0 20px 5px #e6a33e;
+  animation: sweepUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  z-index: 6;
+}
+
+@keyframes sweepUp {
+  0% { transform: translateY(100%); opacity: 1; }
+  100% { transform: translateY(-800px); opacity: 0; }
+}
+
+/* --- PORTAL BUTTON --- */
+.portal-button-container {
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.portal-cycle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid rgba(230, 163, 62, 0.4);
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.portal-cycle-btn:hover {
+  border-color: rgba(230, 163, 62, 1);
+  box-shadow: 0 0 15px rgba(230, 163, 62, 0.4);
+}
+
+.portal-core {
+  width: 12px;
+  height: 12px;
+  background: #e6a33e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #e6a33e;
+  transition: transform 0.2s ease;
+}
+
+.portal-cycle-btn:active .portal-core {
+  transform: scale(0.8);
+}
+
+.portal-pulse-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid #e6a33e;
+  opacity: 0;
+}
+
+.portal-pulse-ring.active-ring {
+  animation: pulseOut 0.6s ease-out forwards;
+}
+
+@keyframes pulseOut {
+  0% { width: 100%; height: 100%; opacity: 1; }
+  100% { width: 200%; height: 200%; opacity: 0; }
+}
+
+.slide-counter {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+/* --- BOTTOM BAR --- */
+.gallery-bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 2rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: #fff;
+}
+
+.memory-counter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.counter-label {
+  color: #aaa;
+  font-weight: 500;
+}
+
+.counter-value {
+  color: #e6a33e;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.sound-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.equalizer {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 15px;
+}
+
+.eq-bar {
+  width: 3px;
+  background: #e6a33e;
+  animation: eqBounce 1s infinite alternate;
+}
+
+.eq-bar:nth-child(1) { height: 60%; animation-delay: 0.1s; }
+.eq-bar:nth-child(2) { height: 100%; animation-delay: 0.3s; }
+.eq-bar:nth-child(3) { height: 40%; animation-delay: 0.5s; }
+.eq-bar:nth-child(4) { height: 80%; animation-delay: 0.2s; }
+
+@keyframes eqBounce {
+  0% { transform: scaleY(0.3); }
+  100% { transform: scaleY(1); }
+}
+
+/* --- EMBERS --- */
+.embers-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ember {
+  position: absolute;
+  bottom: -20px;
+  width: 3px;
+  height: 3px;
+  background: #ffaa00;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(255, 170, 0, 0.8);
+  animation-name: emberFloat;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+@keyframes emberFloat {
+  0% { transform: translateY(0) translateX(0); opacity: 0; }
+  10% { opacity: var(--max-opacity); }
+  90% { opacity: var(--max-opacity); }
+  100% { transform: translateY(-100vh) translateX(calc(var(--drift) * 100px - 50px)); opacity: 0; }
+}
+
+/* --- GALLERY LAYOUT --- */
+.center-portals-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  overflow: hidden; /* Prevent vertical scroll */
+}
+
+/* ── Slider wrapper ── */
+.portals-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  width: 100vw;
+  height: 100%;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  align-items: center;
+}
+
+.portals-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Each slide ── */
+.portal-slide {
+  flex: 0 0 100vw;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-top: 75px; /* clear the navbar */
+  padding-bottom: 0;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: opacity, transform;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.portal-slide.inactive {
+  opacity: 0.25;
+  transform: scale(0.82);
+  pointer-events: none;
+}
+
+.portal-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Slide title ── */
+.gallery-slide-title {
+  font-family: var(--font-cinzel-dec, 'Cinzel', serif);
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  letter-spacing: 0.25em;
+  color: #e6a33e;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px rgba(230, 163, 62, 0.7), 0 0 30px rgba(230, 163, 62, 0.3);
+  margin: 0 0 1rem 0; /* space below title */
+  text-align: center;
+  flex-shrink: 0;
+}
+
+/* ── Ornate frame ── */
+.portal-content {
+  position: relative;
+  /* Make height smaller so title and button both fit within 100vh on fullscreen */
+  height: calc(100vh - 240px);
+  max-height: 700px;
+  aspect-ratio: 2 / 3;
+  width: auto;
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.85),
+    inset 0 0 25px rgba(0, 0, 0, 0.7),
+    0 0 35px rgba(223, 178, 79, 0.5);
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.portal-content-inner {
+  position: absolute;
+  top: 14%;
+  bottom: 14%;
+  left: 17%;
+  right: 17%;
+  background: transparent;
+  overflow: hidden;
+  z-index: 5; /* increased above the frame since the frame isn't transparent */
+}
+
+.portal-frame-individual {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 4;
+  pointer-events: none;
+  object-fit: fill;
+}
+
+/* ── Sliding image track inside the frame ── */
+.image-slider-track {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.image-slider-track img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* stretches image to completely fill the inner frame */
+}
+
+/* ── Rune button below frame ── */
+.portal-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  margin-top: 1rem; /* spacing between frame and button */
+}
+
+.rune-btn {
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  height: auto;
+  filter: brightness(0.7) drop-shadow(0 0 6px rgba(230, 163, 62, 0));
+  border-radius: 50%;
+}
+
+.rune-btn:hover {
+  transform: scale(1.15);
+  filter: brightness(1.3) drop-shadow(0 0 12px rgba(230, 163, 62, 0.8));
+}
+
+.rune-btn:active {
+  transform: scale(0.92);
+}
+
+/* Inactive slides: button is non-interactive */
+.rune-btn--dim {
+  filter: brightness(0.3);
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .gallery-slide-title {
+    font-size: 1.5rem;
+    letter-spacing: 0.2em;
+  }
+
+  .portal-content {
+    height: calc(100vh - 220px);
+    max-height: 480px;
+  }
+}
