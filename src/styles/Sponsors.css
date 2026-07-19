@@ -8,7 +8,7 @@
 .sponsors-page {
   position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background: #020617;
   /* Deep blue/black */
   color: white;
@@ -21,21 +21,22 @@
 /* ── Background Video & Overlays ── */
 .sponsors-bg-video {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  min-height: 120vh;
   object-fit: cover;
   z-index: 0;
   opacity: 1;
-  transform: translate3d(0, 0, 0);
+  transform: scale(1.08) translate3d(0, 0, 0);
   backface-visibility: hidden;
   will-change: transform;
 }
 
 .sponsors-overlay {
   position: fixed;
-  inset: 0;
+  inset: -10%;
   background: radial-gradient(circle at 50% 50%, rgba(2, 6, 23, 0.45) 0%, rgba(2, 6, 23, 0.9) 100%);
   z-index: 1;
 }

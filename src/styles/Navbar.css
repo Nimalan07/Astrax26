@@ -13,18 +13,65 @@
 
     padding:0 60px;
 
-    background: rgba(8, 5, 16, 0.45);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    /* Subtle base translucent glass */
+    background: linear-gradient(180deg, rgba(14, 10, 24, 0.35) 0%, rgba(8, 5, 16, 0.08) 100%);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
 
-    border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 
     z-index:1000;
-    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.4s ease, backdrop-filter 0.4s ease;
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
 }
 
 .navbar.navbar--hidden {
     transform: translateY(-110%);
+}
+
+/* Page-Specific Translucent Glass Themes */
+.navbar.navbar--about,
+body.about-active .navbar {
+    background: linear-gradient(180deg, rgba(45, 8, 14, 0.45) 0%, rgba(18, 2, 5, 0.08) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(255, 75, 75, 0.22) !important;
+    box-shadow: 0 4px 30px rgba(160, 0, 0, 0.15) !important;
+}
+
+.navbar.navbar--sponsors,
+body.sponsors-active .navbar {
+    background: linear-gradient(180deg, rgba(2, 18, 38, 0.45) 0%, rgba(2, 6, 23, 0.08) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.22) !important;
+    box-shadow: 0 4px 30px rgba(0, 200, 255, 0.12) !important;
+}
+
+.navbar.navbar--events,
+body.events-active .navbar {
+    background: linear-gradient(180deg, rgba(30, 22, 6, 0.45) 0%, rgba(10, 8, 2, 0.08) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(230, 184, 0, 0.22) !important;
+    box-shadow: 0 4px 30px rgba(230, 184, 0, 0.12) !important;
+}
+
+.navbar.navbar--workshops,
+body.workshops-active .navbar {
+    background: linear-gradient(180deg, rgba(20, 10, 35, 0.45) 0%, rgba(8, 4, 16, 0.08) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(168, 114, 255, 0.2) !important;
+    box-shadow: 0 4px 30px rgba(168, 114, 255, 0.12) !important;
+}
+
+.navbar.navbar--gallery,
+body.gallery-active .navbar {
+    background: linear-gradient(180deg, rgba(12, 16, 32, 0.45) 0%, rgba(4, 6, 16, 0.08) 100%) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border-bottom: 1px solid rgba(100, 160, 255, 0.2) !important;
+    box-shadow: 0 4px 30px rgba(60, 182, 255, 0.12) !important;
 }
 
 .nav-actions-container {

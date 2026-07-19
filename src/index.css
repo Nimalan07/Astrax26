@@ -81,6 +81,22 @@ html.gallery-active .page-container {
   left: 0;
 }
 
+body.about-active,
+body.about-active #root,
+body.about-active .app,
+body.about-active .page-container {
+  background-color: #0c0205 !important;
+  background: #0c0205 !important;
+}
+
+body.sponsors-active,
+body.sponsors-active #root,
+body.sponsors-active .app,
+body.sponsors-active .page-container {
+  background-color: #020617 !important;
+  background: #020617 !important;
+}
+
 /* HIDE SCROLLBARS GLOBALLY */
 ::-webkit-scrollbar {
   display: none;

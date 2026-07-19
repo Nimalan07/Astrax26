@@ -48,8 +48,23 @@ function Navbar({ activeTab, onTabChange, forceHidden }) {
     }
   };
 
+  const normalizedTab = (activeTab || "").toString().trim().toLowerCase();
+  
+  let navThemeClass = "";
+  if (normalizedTab.includes("about")) {
+    navThemeClass = "navbar--about";
+  } else if (normalizedTab.includes("sponsor")) {
+    navThemeClass = "navbar--sponsors";
+  } else if (normalizedTab.includes("event")) {
+    navThemeClass = "navbar--events";
+  } else if (normalizedTab.includes("workshop")) {
+    navThemeClass = "navbar--workshops";
+  } else if (normalizedTab.includes("gallery")) {
+    navThemeClass = "navbar--gallery";
+  }
+
   return (
-    <nav className={`navbar ${(showNavbar && !forceHidden) ? "" : "navbar--hidden"}`}>
+    <nav className={`navbar ${(showNavbar && !forceHidden) ? "" : "navbar--hidden"} ${navThemeClass}`}>
       <div className="logo" onClick={() => handleTabClick("Home")}>
         <img src={navLogo} alt="Astrax Logo" className="logo-img" />
       </div>

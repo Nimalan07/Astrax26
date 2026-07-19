@@ -84,6 +84,38 @@ function App() {
       document.documentElement.classList.remove("gallery-active");
       document.body.classList.remove("gallery-active");
     }
+
+    if (activeTab === "About Us" || activeTab === "About") {
+      document.documentElement.classList.add("about-active");
+      document.body.classList.add("about-active");
+    } else {
+      document.documentElement.classList.remove("about-active");
+      document.body.classList.remove("about-active");
+    }
+
+    if (activeTab === "Events") {
+      document.documentElement.classList.add("events-active");
+      document.body.classList.add("events-active");
+    } else {
+      document.documentElement.classList.remove("events-active");
+      document.body.classList.remove("events-active");
+    }
+
+    if (activeTab === "Workshops") {
+      document.documentElement.classList.add("workshops-active");
+      document.body.classList.add("workshops-active");
+    } else {
+      document.documentElement.classList.remove("workshops-active");
+      document.body.classList.remove("workshops-active");
+    }
+
+    if (activeTab === "Sponsors") {
+      document.documentElement.classList.add("sponsors-active");
+      document.body.classList.add("sponsors-active");
+    } else {
+      document.documentElement.classList.remove("sponsors-active");
+      document.body.classList.remove("sponsors-active");
+    }
   }, [activeTab]);
 
   useEffect(() => {
