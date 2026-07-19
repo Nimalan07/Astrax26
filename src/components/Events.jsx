@@ -861,8 +861,26 @@ function Events({ setActivePage, onToggleExpand }) {
               </div>
               <div className="line"></div>
             </div>
+
+            {/* Scroll Down Indicator */}
+            <div 
+              className="events-hero-scroll" 
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById("events");
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }} 
+              role="button" 
+              tabIndex={0}
+              aria-label="Scroll down to explore events"
+            >
+              <span className="scroll-text">SCROLL DOWN</span>
+              <div className="scroll-chevron-container">
+                <div className="scroll-chevron"></div>
+                <div className="scroll-chevron"></div>
+              </div>
+            </div>
           </div>
-          
         </section>
 
         {/* ── Mirror Dimension ── */}

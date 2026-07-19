@@ -240,72 +240,67 @@
     }
 }
 
-.scroll-indicator {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
+.events-hero-scroll {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-    opacity: 0.7;
-    animation: bounce 2s infinite;
+    margin-top: 2rem;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 10;
 }
 
-.scroll-indicator .mouse {
-    width: 24px;
-    height: 40px;
-    border: 2px solid var(--text-muted);
-    border-radius: 12px;
-    display: flex;
-    justify-content: center;
-    padding-top: 6px;
+.events-hero-scroll:hover {
+    transform: translateY(4px);
 }
 
-.scroll-indicator .wheel {
-    width: 4px;
-    height: 8px;
-    background-color: var(--marvel-red);
-    border-radius: 2px;
-    animation: scrollWheel 1.2s infinite;
-}
-
-.scroll-text {
-    font-size: 0.75rem;
+.events-hero-scroll .scroll-text {
+    font-family: var(--font-heading);
+    font-size: 0.78rem;
+    letter-spacing: 3px;
+    color: #ffffff;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--text-muted);
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    font-weight: 700;
 }
 
-@keyframes scrollWheel {
+.scroll-chevron-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.scroll-chevron {
+    width: 14px;
+    height: 14px;
+    border-right: 2.5px solid #ffffff;
+    border-bottom: 2.5px solid #ffffff;
+    transform: rotate(45deg);
+    animation: chevronPulse 1.8s infinite;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+.scroll-chevron:nth-child(2) {
+    animation-delay: 0.3s;
+    margin-top: -6px;
+    opacity: 0.6;
+}
+
+@keyframes chevronPulse {
     0% {
-        transform: translateY(0);
+        opacity: 0.2;
+        transform: rotate(45deg) translate(-3px, -3px);
+    }
+    50% {
         opacity: 1;
+        transform: rotate(45deg) translate(0, 0);
     }
-
     100% {
-        transform: translateY(12px);
-        opacity: 0;
-    }
-}
-
-@keyframes bounce {
-
-    0%,
-    20%,
-    50%,
-    80%,
-    100% {
-        transform: translate(-50%, 0);
-    }
-
-    40% {
-        transform: translate(-50%, -8px);
-    }
-
-    60% {
-        transform: translate(-50%, -4px);
+        opacity: 0.2;
+        transform: rotate(45deg) translate(3px, 3px);
     }
 }
 

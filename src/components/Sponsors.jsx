@@ -7,19 +7,20 @@ import sponsersBgPoster from '../assets/sponsers-poster.webp';
 import { FaGoogle, FaMicrosoft, FaAws, FaReact } from 'react-icons/fa';
 import { SiNvidia, SiOpenai, SiIntel, SiAmd, SiTesla, SiMeta, SiGooglecloud, SiCisco } from 'react-icons/si';
 
+import wyntrixImg from '../assets/wyntrix.jpg';
+import greenTrendsImg from '../assets/green trends.jpg';
+import funcityImg from '../assets/funcity.jpg';
+import chennaiSymposiumsImg from '../assets/chennai symposiums.jpg';
+import codeupImg from '../assets/codeup.jpg';
+import decathlonImg from '../assets/decathlon.jpg';
+
 const demoSponsors = [
-  { id: 1, name: 'Nvidia', Icon: SiNvidia, tier: 'AI & GRAPHICS PARTNER' },
-  { id: 2, name: 'OpenAI', Icon: SiOpenai, tier: 'TITLE SPONSOR' },
-  { id: 3, name: 'Microsoft', Icon: FaMicrosoft, tier: 'TITLE SPONSOR' },
-  { id: 4, name: 'Intel', Icon: SiIntel, tier: 'POWER SPONSOR' },
-  { id: 5, name: 'Google', Icon: FaGoogle, tier: 'POWER SPONSOR' },
-  { id: 6, name: 'AWS', Icon: FaAws, tier: 'POWER SPONSOR' },
-  { id: 7, name: 'AMD', Icon: SiAmd, tier: 'TECH PARTNER' },
-  { id: 8, name: 'Tesla', Icon: SiTesla, tier: 'TECH PARTNER' },
-  { id: 9, name: 'Meta', Icon: SiMeta, tier: 'INNOVATION PARTNER' },
-  { id: 10, name: 'Google Cloud', Icon: SiGooglecloud, tier: 'CLOUD PARTNER' },
-  { id: 11, name: 'Cisco', Icon: SiCisco, tier: 'NETWORKING PARTNER' },
-  { id: 12, name: 'React', Icon: FaReact, tier: 'FRONTEND PARTNER' }
+  { id: 1, name: 'Wyntrix Innovation', image: wyntrixImg, tier: 'INNOVATION PARTNER' },
+  { id: 2, name: 'Green Trends', image: greenTrendsImg, tier: 'VOUCHER PARTNER' },
+  { id: 3, name: 'Funcity', image: funcityImg, tier: 'VOUCHER PARTNER' },
+  { id: 4, name: 'Chennai Symposiums', image: chennaiSymposiumsImg, tier: 'MARKETING PARTNER' },
+  { id: 5, name: 'Codeup', image: codeupImg, tier: 'ASSOCIATE PARTNER' },
+  { id: 6, name: 'Decathlon', image: decathlonImg, tier: 'CERTIFICATE SPONSOR' }
 ];
 
 // Helper to avoid hook purity issues (deterministic pseudo-random generator)
@@ -133,24 +134,6 @@ const Sponsors = () => {
         <source src={sponsersBgMp4} type="video/mp4" />
       </video>
 
-      {/* Holographic Coming Soon Display */}
-      <div className="sponsors-coming-soon-container">
-        <div className="coming-soon-tagline">TOGETHER, WE BUILD THE EXTRAORDINARY</div>
-        <h1 className="coming-soon-title">COMING SOON</h1>
-        <h2 className="coming-soon-subtitle">OUR POWER. THEIR VISION.</h2>
-        
-        {/* Projector Base projecting the Coming Soon message */}
-        <div className="pedestal-container">
-          <div className="volumetric-beam"></div>
-          <div className="pedestal-base">
-            <div className="pedestal-ring-1"></div>
-            <div className="pedestal-ring-2"></div>
-            <div className="pedestal-core"></div>
-          </div>
-        </div>
-      </div>
-
-      {/* Centered Sponsors Header (Commented out for later use)
       <header className="sponsors-header">
         <div className="sponsors-tagline">TOGETHER, WE BUILD THE EXTRAORDINARY</div>
         <h1 className="sponsors-title">OUR SPONSORS</h1>
@@ -162,9 +145,7 @@ const Sponsors = () => {
           </div>
         </div>
       </header>
-      */}
 
-      {/* Main Content Layout (Commented out for later use)
       <main className="sponsors-main-content">
         <section className="sponsors-carousel-panel">
           <div className="carousel-viewport">
@@ -194,7 +175,7 @@ const Sponsors = () => {
                     
                     <div className="card-body-tech">
                       <div className="card-icon-container">
-                        <sponsor.Icon />
+                        {sponsor.Icon ? <sponsor.Icon /> : <img src={sponsor.image} alt={sponsor.name} className="sponsor-image" />}
                       </div>
                       <h3 className="card-name">{sponsor.name}</h3>
                       <div className="card-tier">{sponsor.tier}</div>
@@ -224,10 +205,6 @@ const Sponsors = () => {
           </div>
         </section>
       </main>
-      */}
-
-
-
     </div>
   );
 };
